@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="72dp"
         android:fontFamily="@font/inter_semibold"
         android:text="로그인"
@@ -48,6 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/et_id" />
 
     <Button
+        android:id="@+id/btn_login"
         android:layout_width="270dp"
         android:layout_height="40dp"
         android:layout_marginTop="88dp"
