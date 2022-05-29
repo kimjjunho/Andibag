@@ -1,9 +1,8 @@
 package com.example.andibagproject
 
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import com.example.andibagproject.R
 import com.example.andibagproject.chat.ChatFragment
 import com.example.andibagproject.control.ControlFragment
 import com.example.andibagproject.databinding.ActivityMainBinding

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndibagProject">
         <activity
+            android:name=".friend.SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".makeid.MakeIdActivity"
             android:exported="false" />
         <activity
