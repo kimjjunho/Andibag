@@ -8,6 +8,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityMakeIdBinding
@@ -29,11 +30,13 @@ class MakeIdActivity : AppCompatActivity() {
         mBinding.btnBack.setOnClickListener {
             finish()
         }
-
         mBinding.btnCheck.setOnClickListener {
             if(mBinding.etId.length()>0 && mBinding.etPassword.length()>0 && mBinding.etName.length()>0 && mBinding.etPasswordCheck.length()>0 && mBinding.etPassword.text.toString() == mBinding.etPasswordCheck.text.toString()){
                 finish()
             }
+        }
+        mBinding.btnIdCheck.setOnClickListener {
+            Toast.makeText(applicationContext,"사용 가능한 아이디 입니다!",Toast.LENGTH_LONG).show()
         }
 
     }
@@ -54,6 +57,11 @@ class MakeIdActivity : AppCompatActivity() {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if(mBinding.etId.length()>0){
+                    mBinding.btnIdCheck.visibility = View.VISIBLE
+                }else{
+                    mBinding.btnIdCheck.visibility = View.INVISIBLE
+                }
                 if(mBinding.etId.length()>0 && mBinding.etPassword.length()>0 && mBinding.etName.length()>0 && mBinding.etPasswordCheck.length()>0 && mBinding.etPassword.text.toString() == mBinding.etPasswordCheck.text.toString()){
                     mBinding.btnCheck.setTextColor(ContextCompat.getColor(applicationContext!!,R.color.black))
                 } else{
