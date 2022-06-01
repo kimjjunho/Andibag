@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/add_btn_addfriend.xml" value="0.3494791666666667" />
         <entry key="app/src/main/res/drawable/control_ring_switch.xml" value="0.19947916666666668" />
         <entry key="app/src/main/res/drawable/control_ring_switch_off.xml" value="0.19947916666666668" />
         <entry key="app/src/main/res/drawable/control_ring_switch_on.xml" value="0.19947916666666668" />
@@ -12,6 +13,7 @@
         <entry key="app/src/main/res/drawable/login_btn_off.xml" value="0.3494791666666667" />
         <entry key="app/src/main/res/drawable/login_btn_on.xml" value="0.33489583333333334" />
         <entry key="app/src/main/res/drawable/search_image_search.xml" value="0.3494791666666667" />
+        <entry key="app/src/main/res/layout/activity_add.xml" value="0.2909594544027008" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.318393975909141" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3193313773981588" />
         <entry key="app/src/main/res/layout/activity_make_id.xml" value="0.3454528290498382" />
@@ -20,7 +22,7 @@
         <entry key="app/src/main/res/layout/fragment_control.xml" value="0.31521739130434784" />
         <entry key="app/src/main/res/layout/fragment_friend.xml" value="0.31521739130434784" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.31521739130434784" />
-        <entry key="app/src/main/res/layout/item_chating.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_chating.xml" value="0.46090994908292904" />
         <entry key="app/src/main/res/layout/item_gallery.xml" value="0.42282525069920013" />
       </map>
     </option>

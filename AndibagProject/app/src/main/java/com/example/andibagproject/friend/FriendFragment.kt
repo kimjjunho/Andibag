@@ -12,6 +12,9 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
             imageSearch.setOnClickListener {
                 startActivity(Intent(context,SearchActivity()::class.java))
             }
+            imageAdd.setOnClickListener {
+                startActivity(Intent(context,AddActivity()::class.java))
+            }
         }
     }
 

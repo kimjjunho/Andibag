@@ -23,7 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
+            android:id="@+id/image_add"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -41,9 +41,9 @@
             android:layout_height="50dp"
             android:scaleType="fitCenter"
             android:src="@drawable/friend_image_search"
-            app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
-            app:layout_constraintTop_toTopOf="@+id/imageButton2" />
+            app:layout_constraintBottom_toBottomOf="@+id/image_add"
+            app:layout_constraintEnd_toStartOf="@+id/image_add"
+            app:layout_constraintTop_toTopOf="@+id/image_add" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/image_card"
