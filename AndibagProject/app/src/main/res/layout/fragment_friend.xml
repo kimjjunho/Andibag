@@ -27,7 +27,7 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginEnd="36dp"
+            android:layout_marginEnd="28dp"
             android:scaleType="fitCenter"
             android:src="@drawable/friend_image_addfriend"
             app:layout_constraintBottom_toBottomOf="@+id/textView3"

@@ -7,6 +7,18 @@
     android:layout_height="match_parent"
     tools:context=".friend.AddActivity">
 
+    <ImageButton
+        android:id="@+id/image_back"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image_btn_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="0dp"
@@ -29,21 +41,20 @@
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="52dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="28dp"
+        android:fontFamily="@font/inter_light"
+        android:includeFontPadding="false"
         android:text="확인"
         android:textColor="@color/blue"
         android:textSize="15dp"
-        android:fontFamily="@font/inter_light"
-        android:includeFontPadding="false"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/image_back" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/image_card"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="140dp"
         app:cardCornerRadius="75dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"

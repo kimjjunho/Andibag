@@ -21,6 +21,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/image_add"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/gallery_image_add"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -40,9 +52,10 @@
                 android:layout_marginStart="28dp"
                 android:fontFamily="@font/inter_semibold"
                 android:includeFontPadding="false"
-                android:text="New"
-                android:textColor="#FF4545"
-                android:textSize="15dp"
+                android:text="신규 갤러리"
+                android:textColor="@color/black"
+                android:textSize="16dp"
+
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,9 +66,9 @@
                 android:layout_marginStart="5dp"
                 android:fontFamily="@font/inter_semibold"
                 android:includeFontPadding="false"
-                android:text="신규 갤러리"
-                android:textColor="@color/black"
-                android:textSize="16dp"
+                android:text="New"
+                android:textColor="#FF4545"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView6"
                 app:layout_constraintStart_toEndOf="@+id/textView6"
                 app:layout_constraintTop_toTopOf="@+id/textView6" />

@@ -1,7 +1,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_pressed="true">
         <vector
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:width="80dp"
             android:height="30dp"
             android:viewportWidth="80"
@@ -21,7 +20,7 @@
                 <path
                     android:pathData="M5 0H75C77.7614 0 80 2.23858 80 5V25C80 27.7614 77.7614 30 75 30H5C2.23858 30 0 27.7614 0 25V5C0 2.23858 2.23858 0 5 0Z"
                     android:strokeWidth="2"
-                    android:strokeColor="#000000"
+                    android:strokeColor="#D9D9D9"
                     />
 
 
@@ -32,7 +31,6 @@
 
     <item android:state_pressed="false">
         <vector
-            xmlns:android="http://schemas.android.com/apk/res/android"
             android:width="80dp"
             android:height="30dp"
             android:viewportWidth="80"
