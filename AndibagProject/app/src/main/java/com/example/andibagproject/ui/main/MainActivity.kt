@@ -2,12 +2,11 @@ package com.example.andibagproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.andibagproject.R
-import com.example.andibagproject.chat.ChatFragment
-import com.example.andibagproject.control.ControlFragment
+import com.example.andibagproject.ui.chat.ChatFragment
+import com.example.andibagproject.ui.control.ControlFragment
 import com.example.andibagproject.databinding.ActivityMainBinding
-import com.example.andibagproject.friend.FriendFragment
-import com.example.andibagproject.gallery.GalleryFragment
+import com.example.andibagproject.ui.friend.FriendFragment
+import com.example.andibagproject.ui.gallery.GalleryFragment
 
 class MainActivity : AppCompatActivity() {
     val TAG = "MainActivity"
