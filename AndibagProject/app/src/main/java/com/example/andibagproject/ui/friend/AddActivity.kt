@@ -1,10 +1,8 @@
-package com.example.andibagproject.friend
+package com.example.andibagproject.ui.friend
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityAddBinding
-import com.example.andibagproject.databinding.ActivityLoginBinding
 
 class AddActivity : AppCompatActivity() {
 

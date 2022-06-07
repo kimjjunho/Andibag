@@ -1,4 +1,4 @@
-package com.example.andibagproject.friend
+package com.example.andibagproject.ui.friend
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

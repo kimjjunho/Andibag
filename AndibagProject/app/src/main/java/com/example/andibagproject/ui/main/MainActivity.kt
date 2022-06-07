@@ -1,7 +1,8 @@
-package com.example.andibagproject
+package com.example.andibagproject.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.andibagproject.R
 import com.example.andibagproject.ui.chat.ChatFragment
 import com.example.andibagproject.ui.control.ControlFragment
 import com.example.andibagproject.databinding.ActivityMainBinding

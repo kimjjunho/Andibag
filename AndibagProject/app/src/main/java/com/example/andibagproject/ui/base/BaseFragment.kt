@@ -1,4 +1,4 @@
-package com.example.andibagproject.base
+package com.example.andibagproject.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,6 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment <B: ViewDataBinding>(
     @LayoutRes private val layoutRes: Int

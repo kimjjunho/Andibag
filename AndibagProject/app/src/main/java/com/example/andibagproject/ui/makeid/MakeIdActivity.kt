@@ -1,12 +1,9 @@
-package com.example.andibagproject.makeid
+package com.example.andibagproject.ui.makeid
 
-import android.graphics.Color
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat

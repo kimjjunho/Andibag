@@ -1,4 +1,4 @@
-package com.example.andibagproject.gallery
+package com.example.andibagproject.ui.gallery
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

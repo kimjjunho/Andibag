@@ -1,14 +1,14 @@
-package com.example.andibagproject.login
+package com.example.andibagproject.ui.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import com.example.andibagproject.MainActivity
+import com.example.andibagproject.ui.main.MainActivity
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityLoginBinding
-import com.example.andibagproject.makeid.MakeIdActivity
+import com.example.andibagproject.ui.makeid.MakeIdActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         }
         mBinding.btnLogin.setOnClickListener {
             if(mBinding.etId.length()>0 && mBinding.etPassword.length()>0){
-                startActivity(Intent(applicationContext,MainActivity::class.java))
+                startActivity(Intent(applicationContext, MainActivity::class.java))
                 finish()
             }
         }

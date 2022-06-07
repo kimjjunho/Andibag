@@ -1,4 +1,4 @@
-package com.example.andibagproject.chat
+package com.example.andibagproject.ui.chat
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
