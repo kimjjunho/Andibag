@@ -1,4 +1,4 @@
-package com.example.andibagproject.model.login
+package com.example.andibagproject.feature.login.model
 
 import com.google.gson.annotations.SerializedName
 

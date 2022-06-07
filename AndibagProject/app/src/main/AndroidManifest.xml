@@ -22,7 +22,7 @@
             android:name=".feature.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.andibagproject.feature.login.LoginActivity"
+            android:name="com.example.andibagproject.feature.login.ui.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,7 +1,7 @@
-package com.example.andibagproject.model
+package com.example.andibagproject.data
 
-import com.example.andibagproject.model.login.LoginAPI
-import com.example.andibagproject.model.makeid.MakeIdAPI
+import com.example.andibagproject.data.login.LoginAPI
+import com.example.andibagproject.data.makeid.MakeIdAPI
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

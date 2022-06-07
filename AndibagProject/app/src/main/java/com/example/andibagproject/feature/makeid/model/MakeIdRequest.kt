@@ -1,4 +1,4 @@
-package com.example.andibagproject.model.makeid
+package com.example.andibagproject.feature.makeid.model
 
 import com.google.gson.annotations.SerializedName
 

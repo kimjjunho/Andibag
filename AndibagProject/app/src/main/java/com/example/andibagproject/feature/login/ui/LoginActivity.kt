@@ -1,4 +1,4 @@
-package com.example.andibagproject.feature.login
+package com.example.andibagproject.feature.login.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
