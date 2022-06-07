@@ -1,17 +1,17 @@
-package com.example.andibagproject.ui.friend
+package com.example.andibagproject.feature.friend
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.andibagproject.databinding.ActivitySearchBinding
+import com.example.andibagproject.databinding.ActivityAddBinding
 
-class SearchActivity : AppCompatActivity() {
+class AddActivity : AppCompatActivity() {
 
-    private lateinit var mBinding : ActivitySearchBinding
+    private lateinit var mBinding : ActivityAddBinding
     private val binding get() = mBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mBinding = ActivitySearchBinding.inflate(layoutInflater)
+        mBinding = ActivityAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.imageBack.setOnClickListener {

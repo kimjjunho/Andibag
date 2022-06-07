@@ -1,14 +1,14 @@
-package com.example.andibagproject.ui.login
+package com.example.andibagproject.feature.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import com.example.andibagproject.ui.main.MainActivity
+import com.example.andibagproject.feature.main.MainActivity
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityLoginBinding
-import com.example.andibagproject.ui.makeid.MakeIdActivity
+import com.example.andibagproject.feature.makeid.MakeIdActivity
 
 class LoginActivity : AppCompatActivity() {
 

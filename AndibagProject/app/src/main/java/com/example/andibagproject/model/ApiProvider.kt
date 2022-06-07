@@ -1,5 +1,6 @@
 package com.example.andibagproject.model
 
+import com.example.andibagproject.model.login.LoginAPI
 import com.example.andibagproject.model.makeid.MakeIdAPI
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
@@ -11,6 +12,10 @@ private val retrofit: Retrofit = Retrofit.Builder().apply {
     addConverterFactory(GsonConverterFactory.create())
 }.build()
 
-val makeId : MakeIdAPI by lazy {
+val makeIdAPI : MakeIdAPI by lazy {
     retrofit.create(MakeIdAPI::class.java)
+}
+
+val loginAPI : LoginAPI by lazy {
+    retrofit.create(LoginAPI::class.java)
 }

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.friend.SearchActivity">
+    tools:context=".feature.friend.SearchActivity">
 
     <ImageButton
         android:id="@+id/image_back"

@@ -1,4 +1,4 @@
-package com.example.andibagproject.ui.chat
+package com.example.andibagproject.feature.gallery
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.andibagproject.R
 
-class ChatFragment : Fragment() {
+class GalleryFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -15,9 +15,10 @@ class ChatFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+        return inflater.inflate(R.layout.fragment_gallery, container, false)
     }
 
     companion object {
+
     }
 }

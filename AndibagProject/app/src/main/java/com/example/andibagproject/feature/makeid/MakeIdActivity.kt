@@ -1,4 +1,4 @@
-package com.example.andibagproject.ui.makeid
+package com.example.andibagproject.feature.makeid
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

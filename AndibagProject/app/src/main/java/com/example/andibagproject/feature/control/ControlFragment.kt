@@ -1,7 +1,7 @@
-package com.example.andibagproject.ui.control
+package com.example.andibagproject.feature.control
 
 import com.example.andibagproject.R
-import com.example.andibagproject.ui.base.BaseFragment
+import com.example.andibagproject.feature.base.BaseFragment
 import com.example.andibagproject.databinding.FragmentControlBinding
 
 class ControlFragment : BaseFragment<FragmentControlBinding>(R.layout.fragment_control) {

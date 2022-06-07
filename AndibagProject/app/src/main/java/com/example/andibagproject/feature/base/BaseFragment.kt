@@ -1,4 +1,4 @@
-package com.example.andibagproject.ui.base
+package com.example.andibagproject.feature.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

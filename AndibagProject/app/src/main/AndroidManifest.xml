@@ -10,19 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndibagProject">
         <activity
-            android:name="com.example.andibagproject.ui.friend.AddActivity"
+            android:name="com.example.andibagproject.feature.friend.AddActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.andibagproject.ui.friend.SearchActivity"
+            android:name="com.example.andibagproject.feature.friend.SearchActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.andibagproject.ui.makeid.MakeIdActivity"
+            android:name="com.example.andibagproject.feature.makeid.MakeIdActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".feature.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.andibagproject.ui.login.LoginActivity"
+            android:name="com.example.andibagproject.feature.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
