@@ -20,7 +20,7 @@
             android:name="com.example.andibagproject.feature.friend.SearchActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.andibagproject.feature.makeid.MakeIdActivity"
+            android:name="com.example.andibagproject.feature.makeid.ui.MakeIdActivity"
             android:exported="false" />
         <activity
             android:name=".feature.main.MainActivity"

@@ -1,41 +1,72 @@
-package com.example.andibagproject.feature.makeid
+package com.example.andibagproject.feature.makeid.ui
 
+import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityMakeIdBinding
+import com.example.andibagproject.feature.makeid.model.MakeIdRequest
+import com.example.andibagproject.feature.makeid.viewmodel.MakeIdViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MakeIdActivity : AppCompatActivity() {
     private val TAG = "MakeIdActivity"
 
     private lateinit var mBinding : ActivityMakeIdBinding
     private val binding get() = mBinding
+    val vm : MakeIdViewModel by viewModel()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         mBinding = ActivityMakeIdBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         changeBtn()
+        observeEvent()
 
-        mBinding.btnBack.setOnClickListener {
-            finish()
-        }
-        mBinding.btnCheck.setOnClickListener {
-            if(mBinding.etId.length()>0 && mBinding.etPassword.length()>0 && mBinding.etName.length()>0 && mBinding.etPasswordCheck.length()>0 && mBinding.etPassword.text.toString() == mBinding.etPasswordCheck.text.toString()){
+        mBinding.run {
+            btnBack.setOnClickListener {
                 finish()
             }
-        }
-        mBinding.btnIdCheck.setOnClickListener {
-            Toast.makeText(applicationContext,"사용 가능한 아이디 입니다!",Toast.LENGTH_LONG).show()
+            btnCheck.setOnClickListener {
+                if(etId.length()>0 && etPassword.length()>0 && etName.length()>0 && etPasswordCheck.length()>0 && etPassword.text.toString() == etPasswordCheck.text.toString()){
+                    vm.makeId(MakeIdRequest(etId.text.toString(),etPassword.text.toString(),etName.text.toString(),"01072747217"))
+                }else{
+                    toastShort("모든 항목을 조건에 맞게 작성해 주세요.")
+                }
+            }
+            mBinding.btnIdCheck.setOnClickListener {
+                Toast.makeText(applicationContext,"사용 가능한 아이디 입니다!",Toast.LENGTH_LONG).show()
+            }
         }
 
+
+    }
+
+    private fun observeEvent(){
+        vm.run {
+            success.observe(this@MakeIdActivity,{
+                it.run {
+                    finish()
+                }
+            })
+            fail.observe(this@MakeIdActivity,{
+                it.run {
+                    when(it){
+                        409 -> toastShort("해당 id가 이미 존재합니다.")
+                        400 -> toastShort("공백 혹은 띄어쓰기가 존재합니다.")
+                    }
+                }
+            })
+        }
     }
 
     private fun changeBtn(){
@@ -106,5 +137,13 @@ class MakeIdActivity : AppCompatActivity() {
 
             }
         })
+    }
+    
+    private fun toastShort(text: String){
+        Toast.makeText(applicationContext,text,Toast.LENGTH_SHORT).show()
+    }
+
+    private fun toastLong(text: String){
+        Toast.makeText(applicationContext,text,Toast.LENGTH_LONG).show()
     }
 }
