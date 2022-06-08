@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
 class LoginRepository {
-    fun login(loginRequest: LoginRequest) : @NonNull Single<Response<LoginResponse>>? =
+    fun login(loginRequest: LoginRequest) : @NonNull Single<Response<LoginResponse>> =
         loginAPI.login(loginRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
