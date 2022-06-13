@@ -1,6 +1,7 @@
 package com.example.andibagproject.data
 
 import com.example.andibagproject.data.login.LoginAPI
+import com.example.andibagproject.data.makegallery.MakeGalleryAPI
 import com.example.andibagproject.data.makeid.MakeIdAPI
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
@@ -18,4 +19,8 @@ val makeIdAPI : MakeIdAPI by lazy {
 
 val loginAPI : LoginAPI by lazy {
     retrofit.create(LoginAPI::class.java)
+}
+
+val makeGalleryAPI : MakeGalleryAPI by lazy {
+    retrofit.create(MakeGalleryAPI::class.java)
 }
