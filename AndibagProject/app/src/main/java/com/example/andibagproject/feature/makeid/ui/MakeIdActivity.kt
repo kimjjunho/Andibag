@@ -44,7 +44,7 @@ class MakeIdActivity : AppCompatActivity() {
                 }
             }
             mBinding.btnIdCheck.setOnClickListener {
-                Toast.makeText(applicationContext,"사용 가능한 아이디 입니다!",Toast.LENGTH_LONG).show()
+                toastShort("사용 가능한 아이디 입니다!")
             }
         }
 
@@ -138,7 +138,7 @@ class MakeIdActivity : AppCompatActivity() {
             }
         })
     }
-    
+
     private fun toastShort(text: String){
         Toast.makeText(applicationContext,text,Toast.LENGTH_SHORT).show()
     }

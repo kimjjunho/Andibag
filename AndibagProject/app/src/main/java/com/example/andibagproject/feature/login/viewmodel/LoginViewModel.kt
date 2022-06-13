@@ -20,7 +20,7 @@ class LoginViewModel(
     private val rp: LoginRepository
 ):ViewModel() {
     val success : MutableLiveData<Boolean> = MutableLiveData()
-    val fail : MutableLiveData<Boolean> = MutableLiveData()
+    val fail : MutableLiveData<Int> = MutableLiveData()
 
     fun login(loginRequest: LoginRequest){
         rp.login(loginRequest)
@@ -34,7 +34,7 @@ class LoginViewModel(
                     Authority = response.body()?.Authority!!
                     success.value = true
                 }else{
-                    fail.value = true
+                    fail.value = response.code()
                 }
             }
     }

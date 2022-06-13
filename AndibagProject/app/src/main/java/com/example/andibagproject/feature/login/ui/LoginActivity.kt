@@ -12,7 +12,7 @@ import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityLoginBinding
 import com.example.andibagproject.feature.login.model.LoginRequest
 import com.example.andibagproject.feature.login.viewmodel.LoginViewModel
-import com.example.andibagproject.feature.makeid.MakeIdActivity
+import com.example.andibagproject.feature.makeid.ui.MakeIdActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
