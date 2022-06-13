@@ -5,28 +5,31 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="true"
-        android:usesCleartextTraffic="true"
         android:name=".di.AndiApplication"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndibagProject">
+        android:theme="@style/Theme.AndibagProject"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name="com.example.andibagproject.feature.friend.AddActivity"
+            android:name=".feature.makegallery.MakeGalleryActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.andibagproject.feature.friend.SearchActivity"
+            android:name=".feature.friend.AddActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.andibagproject.feature.makeid.ui.MakeIdActivity"
+            android:name=".feature.friend.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.makeid.ui.MakeIdActivity"
             android:exported="false" />
         <activity
             android:name=".feature.main.MainActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.andibagproject.feature.login.ui.LoginActivity"
+            android:name=".feature.login.ui.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
