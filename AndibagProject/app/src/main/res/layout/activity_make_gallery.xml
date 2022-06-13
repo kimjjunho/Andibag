@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".feature.makegallery.MakeGalleryActivity">
+    tools:context=".feature.makegallery.ui.MakeGalleryActivity">
 
     <ImageButton
         android:id="@+id/img_back_make_gallery"

@@ -9,6 +9,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.example.andibagproject.feature.main.MainActivity
 
 abstract class BaseFragment <B: ViewDataBinding>(
     @LayoutRes private val layoutRes: Int
@@ -21,6 +22,8 @@ abstract class BaseFragment <B: ViewDataBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val context = activity as MainActivity
+
         mBinding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
         initView()
         return binding.root

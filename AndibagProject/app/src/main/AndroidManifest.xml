@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AndibagProject"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".feature.makegallery.MakeGalleryActivity"
+            android:name=".feature.makegallery.ui.MakeGalleryActivity"
             android:exported="false" />
         <activity
             android:name=".feature.friend.AddActivity"

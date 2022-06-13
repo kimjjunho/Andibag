@@ -10,7 +10,7 @@ import retrofit2.http.POST
 interface MakeGalleryAPI {
     @POST("notice")
     fun makeGallery(
-        @Header("Authorization") header: String,
+        @Header("Authorization") Authorization: String,
         @Body makeGalleryRequest: MakeGalleryRequest
     ): Single<Response<Unit>>
 }

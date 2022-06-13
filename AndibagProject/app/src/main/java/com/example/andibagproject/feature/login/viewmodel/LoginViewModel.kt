@@ -30,6 +30,7 @@ class LoginViewModel(
             .subscribe{ response->
                 if(response.isSuccessful){
                     ACCESS_TOKEN = "Bearer " + response.body()?.accessToken.toString()
+                    Log.d(TAG,"Bearer " + response.body()?.accessToken.toString())
                     REFRESH_TOKEN = response.body()?.refreshToken.toString()
                     Authority = response.body()?.Authority!!
                     success.value = true
