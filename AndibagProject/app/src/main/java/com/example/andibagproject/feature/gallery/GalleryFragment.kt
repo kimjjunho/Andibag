@@ -17,6 +17,9 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>(R.layout.fragment_g
             imageAdd.setOnClickListener {
                 startActivity(Intent( context,MakeGalleryActivity::class.java))
             }
+            btnAllCheckGallery.setOnClickListener {
+                
+            }
         }
     }
 
