@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.andibagproject.di.module.loginModule
 import com.example.andibagproject.di.module.makeGalleryModule
 import com.example.andibagproject.di.module.makeIdModule
+import com.example.andibagproject.di.module.seeGalleryModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -18,7 +19,8 @@ class AndiApplication : Application(){
                 listOf(
                     loginModule,
                     makeIdModule,
-                    makeGalleryModule
+                    makeGalleryModule,
+                    seeGalleryModule
                 )
             )
         }
