@@ -7,7 +7,7 @@ import com.example.andibagproject.feature.chat.ChatFragment
 import com.example.andibagproject.feature.control.ControlFragment
 import com.example.andibagproject.databinding.ActivityMainBinding
 import com.example.andibagproject.feature.friend.FriendFragment
-import com.example.andibagproject.feature.gallery.GalleryFragment
+import com.example.andibagproject.feature.gallery.ui.GalleryFragment
 
 class MainActivity : AppCompatActivity() {
     val TAG = "MainActivity"
