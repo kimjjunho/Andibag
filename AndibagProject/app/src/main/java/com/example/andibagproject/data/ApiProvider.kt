@@ -1,5 +1,6 @@
 package com.example.andibagproject.data
 
+import com.example.andibagproject.data.gallery.SeeGalleryAPI
 import com.example.andibagproject.data.login.LoginAPI
 import com.example.andibagproject.data.makegallery.MakeGalleryAPI
 import com.example.andibagproject.data.makeid.MakeIdAPI
@@ -23,4 +24,8 @@ val loginAPI : LoginAPI by lazy {
 
 val makeGalleryAPI : MakeGalleryAPI by lazy {
     retrofit.create(MakeGalleryAPI::class.java)
+}
+
+val seeGalleryAPI : SeeGalleryAPI by lazy {
+    retrofit.create(SeeGalleryAPI::class.java)
 }
