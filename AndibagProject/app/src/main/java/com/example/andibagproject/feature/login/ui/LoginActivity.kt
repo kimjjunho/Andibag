@@ -39,8 +39,8 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, MakeIdActivity::class.java))
         }
         mBinding.btnLogin.setOnClickListener {
-            //vm.login(LoginRequest("jaemin05","sasd"))
-            throw RuntimeException("Test Exception")
+            vm.login(LoginRequest("jaemin05","sasd"))
+            //throw RuntimeException("Test Exception")
         }
 
     }
@@ -58,8 +58,7 @@ class LoginActivity : AppCompatActivity() {
             fail.observe(this@LoginActivity) {
                 it.run {
                     when (it) {
-                        500 -> Toast.makeText(applicationContext, "서버가 닫혀 있습니다", Toast.LENGTH_SHORT)
-                            .show()
+                        500 -> Toast.makeText(applicationContext, "서버가 닫혀 있습니다", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
