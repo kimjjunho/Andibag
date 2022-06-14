@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import com.example.andibagproject.feature.main.MainActivity
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityLoginBinding
@@ -17,15 +19,18 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var mBinding : ActivityLoginBinding
-    private val binding get() = mBinding
+   /* private lateinit var mBinding : ActivityLoginBinding
+    private val binding get() = mBinding*/
+    private lateinit var mBinding: ActivityLoginBinding
     val vm : LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mBinding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        /*mBinding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)*/
+
+        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_login)
 
         observeEvent()
         changeBtn()
@@ -34,27 +39,30 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, MakeIdActivity::class.java))
         }
         mBinding.btnLogin.setOnClickListener {
-            if(mBinding.etId.length()>0 && mBinding.etPassword.length()>0){
-                startActivity(Intent(applicationContext, MainActivity::class.java))
-                finish()
-            }
-            vm.login(LoginRequest("jaemin05","sasd"))
+            //vm.login(LoginRequest("jaemin05","sasd"))
+            throw RuntimeException("Test Exception")
         }
 
     }
 
     private fun observeEvent(){
         vm.run {
-            success.observe(this@LoginActivity,{
+            success.observe(this@LoginActivity) {
                 it.run {
-                    Log.d(TAG, "success: ")
+                    if (mBinding.etId.length() > 0 && mBinding.etPassword.length() > 0) {
+                        startActivity(Intent(applicationContext, MainActivity::class.java))
+                        finish()
+                    }
                 }
-            })
-            fail.observe(this@LoginActivity,{
+            }
+            fail.observe(this@LoginActivity) {
                 it.run {
-                    Log.d(TAG, "fail: ")
+                    when (it) {
+                        500 -> Toast.makeText(applicationContext, "서버가 닫혀 있습니다", Toast.LENGTH_SHORT)
+                            .show()
+                    }
                 }
-            })
+            }
         }
     }
 
