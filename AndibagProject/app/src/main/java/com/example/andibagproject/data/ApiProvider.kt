@@ -2,6 +2,7 @@ package com.example.andibagproject.data
 
 import com.example.andibagproject.data.addfriend.AddFriendAPI
 import com.example.andibagproject.data.gallery.SeeGalleryAPI
+import com.example.andibagproject.data.loadfriend.LoadFriendAPI
 import com.example.andibagproject.data.login.LoginAPI
 import com.example.andibagproject.data.makegallery.MakeGalleryAPI
 import com.example.andibagproject.data.makeid.MakeIdAPI
@@ -34,4 +35,8 @@ val seeGalleryAPI : SeeGalleryAPI by lazy {
 
 val addFriendAPI : AddFriendAPI by lazy {
     retrofit.create(AddFriendAPI::class.java)
+}
+
+val loadFriendAPI : LoadFriendAPI by lazy {
+    retrofit.create(LoadFriendAPI::class.java)
 }

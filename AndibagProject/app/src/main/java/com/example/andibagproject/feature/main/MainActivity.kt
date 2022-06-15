@@ -6,7 +6,7 @@ import com.example.andibagproject.R
 import com.example.andibagproject.feature.chat.ChatFragment
 import com.example.andibagproject.feature.control.ControlFragment
 import com.example.andibagproject.databinding.ActivityMainBinding
-import com.example.andibagproject.feature.friend.FriendFragment
+import com.example.andibagproject.feature.friend.load.ui.FriendFragment
 import com.example.andibagproject.feature.gallery.ui.GalleryFragment
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     private fun moveFrag(){
         mBinding.menuFriend.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.main_frame,FriendFragment())
+                .replace(R.id.main_frame, FriendFragment())
                 .commit()
             imageSet()
             mBinding.menuFriend.setImageResource(R.drawable.main_image_friend_black)
