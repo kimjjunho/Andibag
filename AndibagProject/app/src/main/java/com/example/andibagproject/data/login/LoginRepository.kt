@@ -17,7 +17,4 @@ class LoginRepository {
         loginAPI.login(loginRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
-            .doOnError { throwable ->
-                Log.d(ContentValues.TAG, "Error: $throwable")
-            }
 }

@@ -35,6 +35,7 @@ class LoginViewModel(
                 }
             }, {
                 when(it) {
+                    is OnErrorNotImplementedException -> fail.value = 500
                     is ConnectException -> fail.value = 500
                 }
             })

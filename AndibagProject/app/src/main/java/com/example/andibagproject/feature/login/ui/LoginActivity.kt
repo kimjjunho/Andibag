@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(Intent(applicationContext, MakeIdActivity::class.java))
         }
         mBinding.btnLogin.setOnClickListener {
-            vm.login(LoginRequest("jaemin05","sasd"))
+            vm.login(LoginRequest("junho0505","sasdsd"))
             //throw RuntimeException("Test Exception")
         }
 

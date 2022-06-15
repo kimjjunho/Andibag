@@ -38,7 +38,7 @@ class MakeIdActivity : AppCompatActivity() {
             }
             btnCheck.setOnClickListener {
                 if(etId.length()>0 && etPassword.length()>0 && etName.length()>0 && etPasswordCheck.length()>0 && etPassword.text.toString() == etPasswordCheck.text.toString()){
-                    vm.makeId(MakeIdRequest(etId.text.toString(),etPassword.text.toString(),etName.text.toString(),"01072747217"))
+                    vm.makeId(MakeIdRequest(etName.text.toString(),etPassword.text.toString(),etId.text.toString(),"01012345678"))
                 }else{
                     toastShort("모든 항목을 조건에 맞게 작성해 주세요.")
                 }
@@ -53,19 +53,19 @@ class MakeIdActivity : AppCompatActivity() {
 
     private fun observeEvent(){
         vm.run {
-            success.observe(this@MakeIdActivity,{
+            success.observe(this@MakeIdActivity) {
                 it.run {
                     finish()
                 }
-            })
-            fail.observe(this@MakeIdActivity,{
+            }
+            fail.observe(this@MakeIdActivity) {
                 it.run {
-                    when(it){
+                    when (it) {
                         409 -> toastShort("해당 id가 이미 존재합니다.")
                         400 -> toastShort("공백 혹은 띄어쓰기가 존재합니다.")
                     }
                 }
-            })
+            }
         }
     }
 
