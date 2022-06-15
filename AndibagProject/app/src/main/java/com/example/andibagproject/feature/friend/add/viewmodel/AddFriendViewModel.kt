@@ -6,7 +6,7 @@ import com.example.andibagproject.data.addfriend.AddFriendRepository
 import com.example.andibagproject.feature.friend.add.model.AddFriendRequest
 
 class AddFriendViewModel(
-    val rp : AddFriendRepository
+    private val rp : AddFriendRepository
 ): ViewModel() {
 
     val success = MutableLiveData<Boolean>()
