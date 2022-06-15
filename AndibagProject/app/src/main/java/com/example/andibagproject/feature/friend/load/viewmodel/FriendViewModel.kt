@@ -8,14 +8,14 @@ class FriendViewModel(
     private val rp : LoadFriendRepository
 ): ViewModel(){
 
-    val success = MutableLiveData<Boolean>()
+    val success = MutableLiveData<String>()
     val fail = MutableLiveData<Int>()
 
     fun loadFriend() {
         rp.loadFriend()
             .subscribe{ reaponse ->
                 if(reaponse.isSuccessful){
-                    success.value = true
+                    success.value = reaponse.body().toString()
                 }else{
                     fail.value = reaponse.code()
                 }
