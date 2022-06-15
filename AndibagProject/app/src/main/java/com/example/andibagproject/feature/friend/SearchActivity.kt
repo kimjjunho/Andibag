@@ -16,6 +16,7 @@ class SearchActivity : AppCompatActivity() {
 
         binding.imageBack.setOnClickListener {
             finish()
+
         }
     }
 }

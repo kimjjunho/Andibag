@@ -1,10 +1,10 @@
-package com.example.andibagproject.feature.friend
+package com.example.andibagproject.feature.friend.add
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.andibagproject.databinding.ActivityAddBinding
 
-class AddActivity : AppCompatActivity() {
+class AddFriendActivity : AppCompatActivity() {
 
     private lateinit var mBinding : ActivityAddBinding
     private val binding get() = mBinding

@@ -4,6 +4,7 @@ import com.example.andibagproject.feature.main.MainActivity
 import com.example.andibagproject.R
 import com.example.andibagproject.feature.base.BaseFragment
 import com.example.andibagproject.databinding.FragmentFriendBinding
+import com.example.andibagproject.feature.friend.add.AddFriendActivity
 
 class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_friend) {
     override fun initView() {
@@ -13,7 +14,7 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
                 startActivity(Intent(context,SearchActivity()::class.java))
             }
             imageAdd.setOnClickListener {
-                startActivity(Intent(context,AddActivity()::class.java))
+                startActivity(Intent(context, AddFriendActivity()::class.java))
             }
         }
     }

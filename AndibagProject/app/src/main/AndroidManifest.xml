@@ -20,7 +20,7 @@
             android:name=".feature.makegallery.ui.MakeGalleryActivity"
             android:exported="false" />
         <activity
-            android:name=".feature.friend.AddActivity"
+            android:name=".feature.friend.add.AddFriendActivity"
             android:exported="false" />
         <activity
             android:name=".feature.friend.SearchActivity"

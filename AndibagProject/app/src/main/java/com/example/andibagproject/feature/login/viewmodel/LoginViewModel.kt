@@ -23,7 +23,6 @@ class LoginViewModel(
     fun login(loginRequest: LoginRequest) {
         rp.login(loginRequest)
             .subscribe( { response->
-                Log.d(TAG, "login: try")
                 if (response.isSuccessful) {
                     ACCESS_TOKEN = "Bearer " + response.body()?.accessToken.toString()
                     Log.d(TAG, "Bearer " + response.body()?.accessToken.toString())
