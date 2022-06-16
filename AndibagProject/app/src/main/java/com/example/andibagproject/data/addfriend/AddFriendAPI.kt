@@ -8,7 +8,7 @@ import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface AddFriendAPI {
-    @POST
+    @POST("friend")
     fun addFriend(
         @Header("Authorization") header: String,
         @Body addFriendRequest: AddFriendRequest

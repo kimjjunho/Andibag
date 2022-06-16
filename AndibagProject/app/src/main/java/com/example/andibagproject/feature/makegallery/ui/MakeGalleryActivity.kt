@@ -32,6 +32,9 @@ class MakeGalleryActivity : AppCompatActivity() {
             btnSendMakeGallery.setOnClickListener {
                 vm.makeGallery(MakeGalleryRequest(etTitleMakeGallery.text.toString(),etContentsMakeGallery.text.toString()))
             }
+            imgBackMakeGallery.setOnClickListener {
+                finish()
+            }
         }
 
     }

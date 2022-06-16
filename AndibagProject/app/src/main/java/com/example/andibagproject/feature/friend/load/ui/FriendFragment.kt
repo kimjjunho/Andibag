@@ -18,7 +18,7 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
     override fun initView() {
         val context = activity as MainActivity
 
-        vm.loadFriend()
+       // vm.loadFriend()
         binding.run {
             imageSearch.setOnClickListener {
                 startActivity(Intent(context, SearchActivity()::class.java))

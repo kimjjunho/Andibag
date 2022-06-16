@@ -1,7 +1,8 @@
 package com.example.andibagproject.feature.friend.add.ui
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.widget.Toast
+import android.util.Log
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityAddFriendBinding
 import com.example.andibagproject.feature.base.BaseActivity
@@ -14,6 +15,8 @@ class AddFriendActivity : BaseActivity<ActivityAddFriendBinding>(R.layout.activi
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        observeEvent()
 
         binding.run {
             imageBack.setOnClickListener {
@@ -34,6 +37,7 @@ class AddFriendActivity : BaseActivity<ActivityAddFriendBinding>(R.layout.activi
                 }
             }
             fail.observe(this@AddFriendActivity) {
+                Log.d(TAG, "observeEvent: ")
                 it.run {
                     when(it){
                         403 -> showToastShort("로그인을 다시해주세요")
