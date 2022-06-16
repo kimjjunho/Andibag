@@ -24,21 +24,29 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_id_layout"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="64dp"
+            app:hintTextColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView">
             <EditText
                 android:id="@+id/et_id"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edt_underline"
+                android:textColorHighlight="@color/blue8B"
+                android:textSelectHandleLeft="@color/blue8B"
+                android:textSelectHandleRight="@color/blue8B"
+                android:textSelectHandle="@color/blue8B"
                 android:layout_marginTop="64dp"
                 android:hint="ID or E-mail"
                 android:textSize="15dp"
                 android:textColor="@color/black"
+                android:singleLine="true"
                 android:fontFamily="@font/inter_medium"
+                android:textCursorDrawable="@drawable/cursor_color"
                 />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -46,9 +54,10 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/et_password_layout"
             android:layout_width="260dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="35dp"
             app:passwordToggleEnabled="true"
+            app:hintTextColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,10 +65,17 @@
 
             <EditText
                 android:id="@+id/et_password"
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/edt_underline"
+                android:textCursorDrawable="@drawable/cursor_color"
+                android:textColorHighlight="@color/blue8B"
+                android:textSelectHandleLeft="@color/blue8B"
+                android:textSelectHandleRight="@color/blue8B"
+                android:textSelectHandle="@color/blue8B"
                 android:fontFamily="@font/inter_medium"
                 android:hint="Password"
+                android:singleLine="true"
                 android:textColor="@color/black"
                 android:textSize="15dp" />
         </com.google.android.material.textfield.TextInputLayout>

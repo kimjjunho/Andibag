@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.11604439959636731" />
         <entry key="app/src/main/res/drawable/add_btn_addfriend.xml" value="0.3494791666666667" />
         <entry key="app/src/main/res/drawable/control_ring_switch.xml" value="0.19947916666666668" />
         <entry key="app/src/main/res/drawable/control_ring_switch_off.xml" value="0.19947916666666668" />
         <entry key="app/src/main/res/drawable/control_ring_switch_on.xml" value="0.19947916666666668" />
         <entry key="app/src/main/res/drawable/control_ring_switch_thumb.xml" value="0.19947916666666668" />
+        <entry key="app/src/main/res/drawable/cursor_color.xml" value="0.15" />
+        <entry key="app/src/main/res/drawable/cursor_handler.xml" value="0.15" />
+        <entry key="app/src/main/res/drawable/edt_under_normal.xml" value="0.15" />
+        <entry key="app/src/main/res/drawable/edt_under_selected.xml" value="0.15" />
+        <entry key="app/src/main/res/drawable/edt_underline.xml" value="0.15" />
         <entry key="app/src/main/res/drawable/error_btn_back.xml" value="0.2675925925925926" />
         <entry key="app/src/main/res/drawable/error_btn_login.xml" value="0.2675925925925926" />
         <entry key="app/src/main/res/drawable/item_gallery_image_background.xml" value="0.33489583333333334" />
@@ -15,6 +21,7 @@
         <entry key="app/src/main/res/drawable/login_btn_off.xml" value="0.3494791666666667" />
         <entry key="app/src/main/res/drawable/login_btn_on.xml" value="0.33489583333333334" />
         <entry key="app/src/main/res/drawable/search_image_search.xml" value="0.3494791666666667" />
+        <entry key="app/src/main/res/drawable/text_input_color.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.2591493570722057" />
         <entry key="app/src/main/res/layout/activity_add_friend.xml" value="0.171875" />
         <entry key="app/src/main/res/layout/activity_error.xml" value="0.24620369626927813" />
