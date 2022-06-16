@@ -1,5 +1,6 @@
 package com.example.andibagproject.feature.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +23,6 @@ abstract class BaseFragment <B: ViewDataBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val context = activity as MainActivity
 
         mBinding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
         initView()
