@@ -37,8 +37,8 @@ class MakeIdActivity : AppCompatActivity() {
                 finish()
             }
             btnCheck.setOnClickListener {
-                if(etId.length()>0 && etPassword.length()>0 && etName.length()>0 && etPasswordCheck.length()>0 && etPassword.text.toString() == etPasswordCheck.text.toString()){
-                    vm.makeId(MakeIdRequest(etName.text.toString(),etPassword.text.toString(),etId.text.toString(),"01012345678"))
+                if(etId.length()>0 && etPassword.length()>0 && etName.length()>0 && etPasswordCheck.length()>0 && etPassword.text.toString() == etPasswordCheck.text.toString() && etPhone.length() == 11){
+                    vm.makeId(MakeIdRequest(etName.text.toString(),etId.text.toString(),etPassword.text.toString(),etPhone.text.toString()))
                 }else{
                     toastShort("모든 항목을 조건에 맞게 작성해 주세요.")
                 }
@@ -55,6 +55,7 @@ class MakeIdActivity : AppCompatActivity() {
         vm.run {
             success.observe(this@MakeIdActivity) {
                 it.run {
+                    toastLong("회원가입에 성공하셨습니다!")
                     finish()
                 }
             }

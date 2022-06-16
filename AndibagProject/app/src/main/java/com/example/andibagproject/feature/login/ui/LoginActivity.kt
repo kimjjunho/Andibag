@@ -35,14 +35,14 @@ class LoginActivity : AppCompatActivity() {
         observeEvent()
         changeBtn()
 
-        mBinding.btnMakeId.setOnClickListener {
-            startActivity(Intent(applicationContext, MakeIdActivity::class.java))
+        mBinding.run {
+            btnMakeId.setOnClickListener {
+                startActivity(Intent(applicationContext, MakeIdActivity::class.java))
+            }
+            btnLogin.setOnClickListener {
+                vm.login(LoginRequest(etId.text.toString(),etPassword.text.toString()))
+            }
         }
-        mBinding.btnLogin.setOnClickListener {
-            vm.login(LoginRequest("jaemin05","sasd"))
-            //throw RuntimeException("Test Exception")
-        }
-
     }
 
     private fun observeEvent(){
@@ -58,6 +58,8 @@ class LoginActivity : AppCompatActivity() {
             fail.observe(this@LoginActivity) {
                 it.run {
                     when (it) {
+                        401 -> Toast.makeText(applicationContext,"비밀번호가 일치하지 않습니다",Toast.LENGTH_SHORT).show()
+                        404 -> Toast.makeText(applicationContext,"해당 id가 존재하지 않습니다",Toast.LENGTH_SHORT).show()
                         500 -> Toast.makeText(applicationContext, "서버가 닫혀 있습니다", Toast.LENGTH_SHORT).show()
                     }
                 }
