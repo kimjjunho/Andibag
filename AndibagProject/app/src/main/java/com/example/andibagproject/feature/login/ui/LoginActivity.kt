@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
@@ -12,30 +13,23 @@ import androidx.databinding.DataBindingUtil
 import com.example.andibagproject.feature.main.MainActivity
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityLoginBinding
+import com.example.andibagproject.feature.base.BaseActivity
 import com.example.andibagproject.feature.login.model.LoginRequest
 import com.example.andibagproject.feature.login.viewmodel.LoginViewModel
 import com.example.andibagproject.feature.makeid.ui.MakeIdActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login) {
 
-   /* private lateinit var mBinding : ActivityLoginBinding
-    private val binding get() = mBinding*/
-    private lateinit var mBinding: ActivityLoginBinding
     val vm : LoginViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /*mBinding = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root)*/
-
-        mBinding = DataBindingUtil.setContentView(this,R.layout.activity_login)
-
         observeEvent()
         changeBtn()
 
-        mBinding.run {
+        binding.run {
             btnMakeId.setOnClickListener {
                 startActivity(Intent(applicationContext, MakeIdActivity::class.java))
             }
@@ -45,11 +39,11 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    private fun observeEvent(){
+    override fun observeEvent(){
         vm.run {
             success.observe(this@LoginActivity) {
                 it.run {
-                    if (mBinding.etId.length() > 0 && mBinding.etPassword.length() > 0) {
+                    if (binding.etId.length() > 0 && binding.etPassword.length() > 0) {
                         startActivity(Intent(applicationContext, MainActivity::class.java))
                         finish()
                     }
@@ -68,25 +62,25 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun changeBtn(){
-        mBinding.etId.addTextChangedListener(object :TextWatcher{
+        binding.etId.addTextChangedListener(object :TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(mBinding.etId.length()>0 && mBinding.etPassword.length()>0){
-                    mBinding.btnLogin.setBackgroundResource(R.drawable.login_btn_on)
+                if(binding.etId.length()>0 && binding.etPassword.length()>0){
+                    binding.btnLogin.setBackgroundResource(R.drawable.login_btn_on)
                 } else{
-                    mBinding.btnLogin.setBackgroundResource(R.drawable.login_btn_off)
+                    binding.btnLogin.setBackgroundResource(R.drawable.login_btn_off)
                 }
             }
         })
-        mBinding.etPassword.addTextChangedListener(object : TextWatcher{
+        binding.etPassword.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
             override fun afterTextChanged(p0: Editable?) {}
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if(mBinding.etId.length()>0 && mBinding.etPassword.length()>0){
-                    mBinding.btnLogin.setBackgroundResource(R.drawable.login_btn_on)
+                if(binding.etId.length()>0 && binding.etPassword.length()>0){
+                    binding.btnLogin.setBackgroundResource(R.drawable.login_btn_on)
                 } else{
-                    mBinding.btnLogin.setBackgroundResource(R.drawable.login_btn_off)
+                    binding.btnLogin.setBackgroundResource(R.drawable.login_btn_off)
                 }
             }
         })

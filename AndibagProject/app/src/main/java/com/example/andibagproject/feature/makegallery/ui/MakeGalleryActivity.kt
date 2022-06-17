@@ -9,26 +9,21 @@ import com.example.andibagproject.ACCESS_TOKEN
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityLoginBinding
 import com.example.andibagproject.databinding.ActivityMakeGalleryBinding
+import com.example.andibagproject.feature.base.BaseActivity
 import com.example.andibagproject.feature.login.viewmodel.LoginViewModel
 import com.example.andibagproject.feature.makegallery.model.MakeGalleryRequest
 import com.example.andibagproject.feature.makegallery.viewmodel.MakeGalleryViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MakeGalleryActivity : AppCompatActivity() {
-
-    private lateinit var mBinding : ActivityMakeGalleryBinding
-    private val binding get() = mBinding
+class MakeGalleryActivity : BaseActivity<ActivityMakeGalleryBinding>(R.layout.activity_make_gallery) {
     val vm : MakeGalleryViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mBinding = ActivityMakeGalleryBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         observeEvent()
 
-        mBinding.run {
+        binding.run {
             btnSendMakeGallery.setOnClickListener {
                 vm.makeGallery(MakeGalleryRequest(etTitleMakeGallery.text.toString(),etContentsMakeGallery.text.toString()))
             }
@@ -39,19 +34,23 @@ class MakeGalleryActivity : AppCompatActivity() {
 
     }
 
-    private fun observeEvent(){
+    override fun observeEvent(){
         vm.run {
-            success.observe(this@MakeGalleryActivity,{
+            success.observe(this@MakeGalleryActivity) {
                 it.run {
-                    Log.d(TAG, "success: ")
+                    showToastLong("게시물 올리기 성공!")
+                    finish()
                 }
-            })
-            fail.observe(this@MakeGalleryActivity,{
+            }
+            fail.observe(this@MakeGalleryActivity) {
                 it.run {
-                    Log.d(TAG, "fail: $it")
-                    Log.d(TAG, ACCESS_TOKEN)
+                    when(it){
+                        403 -> showToastShort("다시 로그인 해주세요")
+                        400 -> showToastShort("제목은 20글자 미만으로 작성해 주세요")
+                        401 -> showToastShort("다시 로그인 해주세요")
+                    }
                 }
-            })
+            }
         }
     }
 }
