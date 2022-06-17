@@ -30,12 +30,12 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>(R.layout.fragment_g
         vm.run {
             success.observe(this@GalleryFragment){
                 it.run {
-                    Log.d(TAG, "success: ")
+                    showToast("게시물 올리기 성공!")
                 }
             }
             fail.observe(this@GalleryFragment){
                 it.run {
-                    Log.d(TAG, "fail: $it")
+
                 }
             }
         }
