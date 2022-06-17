@@ -14,4 +14,9 @@ class MakeIdRepository {
         makeIdAPI.signup(makeIdRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
+    fun checkId(checkId: String): @NonNull Single<Response<Unit>> =
+        makeIdAPI.checkId(checkId)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
 }

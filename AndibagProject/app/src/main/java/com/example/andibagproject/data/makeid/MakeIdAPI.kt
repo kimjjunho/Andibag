@@ -11,4 +11,9 @@ interface MakeIdAPI {
     fun signup(
         @Body makeIdRequest: MakeIdRequest
     ) : Single<Response<Unit>>
+
+    @POST("user/signup/check")
+    fun checkId(
+        @Body accountId: String
+    ): Single<Response<Unit>>
 }
