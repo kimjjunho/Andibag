@@ -46,7 +46,7 @@ class MakeIdActivity : AppCompatActivity() {
                 }
             }
             mBinding.btnIdCheck.setOnClickListener {
-                toastShort("사용 가능한 아이디 입니다!")
+                vm.checkId(etId.text.toString())
             }
         }
 
@@ -66,6 +66,14 @@ class MakeIdActivity : AppCompatActivity() {
                     when (it) {
                         409 -> toastShort("해당 id가 이미 존재합니다.")
                         400 -> toastShort("공백 혹은 띄어쓰기가 존재합니다.")
+                    }
+                }
+            }
+            idCheck.observe(this@MakeIdActivity){
+                it.run {
+                    when(it){
+                        202 -> toastShort("사용 가능한 아이디입니다")
+                        409 -> toastShort("해당 아이디가 이미 존재합니다")
                     }
                 }
             }
