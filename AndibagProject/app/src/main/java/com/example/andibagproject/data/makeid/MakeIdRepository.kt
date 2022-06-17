@@ -1,5 +1,6 @@
 package com.example.andibagproject.data.makeid
 
+import android.accounts.Account
 import com.example.andibagproject.data.makeIdAPI
 import com.example.andibagproject.feature.login.model.LoginRequest
 import com.example.andibagproject.feature.makeid.model.MakeIdRequest
@@ -15,8 +16,8 @@ class MakeIdRepository {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 
-    fun checkId(checkId: String): @NonNull Single<Response<Unit>> =
-        makeIdAPI.checkId(checkId)
+    fun checkId(accountId: String): @NonNull Single<Response<Unit>> =
+        makeIdAPI.checkId(accountId)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 }
