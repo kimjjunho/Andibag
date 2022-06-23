@@ -1,5 +1,7 @@
 package com.example.andibagproject.data.gallery.comment.write
 
+import io.reactivex.rxjava3.core.Single
+import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
@@ -11,5 +13,5 @@ interface WriteCommentAPI {
         @Header("Authorization") header: String,
         @Body content: String,
         @Path("id") id: Int
-    )
+    ):Single<Response<Unit>>
 }
