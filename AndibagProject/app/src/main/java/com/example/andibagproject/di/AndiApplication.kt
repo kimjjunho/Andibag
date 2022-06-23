@@ -20,7 +20,8 @@ class AndiApplication : Application(){
                     makeGalleryModule,
                     seeGalleryModule,
                     addFriendModule,
-                    loadFriendModule
+                    loadFriendModule,
+                    writeCommentModule
                 )
             )
         }
