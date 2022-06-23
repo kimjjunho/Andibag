@@ -2,7 +2,7 @@ package com.example.andibagproject.data
 
 import com.example.andibagproject.data.addfriend.AddFriendAPI
 import com.example.andibagproject.data.gallery.SeeGalleryAPI
-import com.example.andibagproject.data.gallery.comment.write.WriteCommentAPI
+import com.example.andibagproject.data.gallery.comment.CommentAPI
 import com.example.andibagproject.data.loadfriend.LoadFriendAPI
 import com.example.andibagproject.data.login.LoginAPI
 import com.example.andibagproject.data.makegallery.MakeGalleryAPI
@@ -10,7 +10,6 @@ import com.example.andibagproject.data.makeid.MakeIdAPI
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 private val retrofit: Retrofit = Retrofit.Builder().apply {
     baseUrl("http://15.164.67.132:8080")
@@ -42,6 +41,6 @@ val loadFriendAPI : LoadFriendAPI by lazy {
     retrofit.create(LoadFriendAPI::class.java)
 }
 
-val writeCommentAPI : WriteCommentAPI by lazy {
-    retrofit.create(WriteCommentAPI::class.java)
+val commentAPI : CommentAPI by lazy {
+    retrofit.create(CommentAPI::class.java)
 }

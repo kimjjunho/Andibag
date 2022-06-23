@@ -1,10 +1,10 @@
 package com.example.andibagproject.feature.gallery.comment
 
 import androidx.lifecycle.ViewModel
-import com.example.andibagproject.data.gallery.comment.write.WriteCommentRepository
+import com.example.andibagproject.data.gallery.comment.CommentRepository
 
 class CommentViewModel(
-    private val writeRp : WriteCommentRepository
+    private val rp : CommentRepository
 ):ViewModel() {
 
 }
