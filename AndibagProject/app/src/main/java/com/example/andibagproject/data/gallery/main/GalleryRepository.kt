@@ -21,8 +21,8 @@ class GalleryRepository {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 
-    fun patchGallery(writeGalleryRequest: WriteGalleryRequest) : @NonNull Single<Response<Unit>> =
-        galleryAPI.patchGallery(ACCESS_TOKEN, writeGalleryRequest)
+    fun patchGallery(writeGalleryRequest: WriteGalleryRequest,id: Long) : @NonNull Single<Response<Unit>> =
+        galleryAPI.patchGallery(ACCESS_TOKEN, writeGalleryRequest, id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 }
