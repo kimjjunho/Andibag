@@ -3,6 +3,7 @@ package com.example.andibagproject.data.gallery.main
 import com.example.andibagproject.ACCESS_TOKEN
 import com.example.andibagproject.data.galleryAPI
 import com.example.andibagproject.feature.gallery.main.model.SeeGalleryResponse
+import com.example.andibagproject.feature.gallery.main.model.WriteGalleryRequest
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.core.Single
@@ -14,4 +15,14 @@ class GalleryRepository {
         galleryAPI.seeGallery(ACCESS_TOKEN)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
+    fun writeGallery(writeGalleryRequest: WriteGalleryRequest) : @NonNull Single<Response<Unit>> =
+        galleryAPI.writeGallery(ACCESS_TOKEN,writeGalleryRequest)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+
+    fun patchGallery(writeGalleryRequest: WriteGalleryRequest) : @NonNull Single<Response<Unit>> =
+        galleryAPI.patchGallery(ACCESS_TOKEN, writeGalleryRequest)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn()
 }
