@@ -39,6 +39,9 @@ android {
 
 dependencies {
 
+    //슬라이딩 레이아웃
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
     //서버연동
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'

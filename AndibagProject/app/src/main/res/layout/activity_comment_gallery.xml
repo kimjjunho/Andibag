@@ -1,124 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".feature.commentgallery.CommentGalleryActivity">
-    
-    <ScrollView
+    xmlns:tools="http://schemas.android.com/tools">
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        tools:context=".feature.commentgallery.CommentGalleryActivity"
+        android:id="@+id/mainFrame"
+        app:umanoScrollableView="@id/dragView"
+        android:gravity="bottom"
+        app:umanoPanelHeight="0dp"
+        app:umanoOverlay="true"
+        app:umanoShadowHeight="0dp"
+        app:umanoParallaxOffset="0dp">
+
+       <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <ImageButton
-                android:id="@+id/image_back"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="30dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/image_btn_back"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageButton
+                    android:id="@+id/image_back"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="30dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/image_btn_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="15dp"
+                    app:cardCornerRadius="75dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/image_back">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="31dp"
+                        android:src="@drawable/item_image_profile" />
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/textView14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="이름"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                    app:layout_constraintStart_toEndOf="@+id/cardView"
+                    app:layout_constraintTop_toTopOf="@+id/cardView" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="28dp"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+                <ImageButton
+                    android:id="@+id/img_good"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/commentgallery_image_btn_good"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+                <ImageButton
+                    android:id="@+id/img_chat"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/commentgallery_image_btn_chat"
+                    app:layout_constraintStart_toEndOf="@+id/img_good"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+                <TextView
+                    android:id="@+id/text_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="25dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="새로운 프로젝트 시갖ㄱ"
+                    android:textColor="@color/black"
+                    android:textSize="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/img_good" />
+
+                <TextView
+                    android:id="@+id/text_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="몇 분전"
+                    android:textColor="@color/gray"
+                    android:textSize="13dp"
+                    app:layout_constraintStart_toStartOf="@+id/text_main"
+                    app:layout_constraintTop_toBottomOf="@+id/text_main" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dragView"
+            android:layout_width="match_parent"
+            android:layout_height="560dp"
+            android:background="@drawable/commentgallery_slide_background"
+            android:clickable="true"
+            android:focusable="false"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="댓글"
+                android:textColor="@color/black"
+                android:textSize="18dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                app:cardCornerRadius="75dp"
-                app:cardElevation="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/image_back">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="31dp"
-                    android:src="@drawable/item_image_profile" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:fontFamily="@font/inter_semibold"
-                android:text="이름"
-                android:textColor="@color/black"
-                android:textSize="15dp"
-                app:layout_constraintBottom_toBottomOf="@+id/cardView"
-                app:layout_constraintStart_toEndOf="@+id/cardView"
-                app:layout_constraintTop_toTopOf="@+id/cardView" />
-
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginTop="28dp"
-                app:layout_constraintDimensionRatio="1:1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toTopOf="@+id/editText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                app:layout_constraintTop_toBottomOf="@+id/textView15"
+                app:layout_constraintVertical_bias="0.454" />
 
-            <ImageButton
-                android:id="@+id/img_good"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="5dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/commentgallery_image_btn_good"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
-
-            <ImageButton
-                android:id="@+id/img_chat"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="5dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/commentgallery_image_btn_chat"
-                app:layout_constraintStart_toEndOf="@+id/img_good"
-                app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
-
-            <TextView
-                android:id="@+id/text_main"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/search_edit"
                 android:fontFamily="@font/inter_regular"
-                android:text="새로운 프로젝트 시갖ㄱ"
+                android:hint="전화번호를 입력하세요(-제외)"
+                android:includeFontPadding="false"
+                android:paddingStart="15dp"
                 android:textColor="@color/black"
-                android:textSize="12dp"
+                android:textSize="11dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginEnd="40dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/commentgallery_image_btn_send"
+                app:layout_constraintBottom_toBottomOf="@+id/editText"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/img_good" />
-
-            <TextView
-                android:id="@+id/text_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="몇 분전"
-                android:textColor="@color/gray"
-                android:textSize="13dp"
-                app:layout_constraintStart_toStartOf="@+id/text_main"
-                app:layout_constraintTop_toBottomOf="@+id/text_main" />
-
+                app:layout_constraintTop_toTopOf="@+id/editText" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-    
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+</layout>

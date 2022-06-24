@@ -4,6 +4,7 @@ import android.content.Intent
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.FragmentGalleryBinding
 import com.example.andibagproject.feature.base.BaseFragment
+import com.example.andibagproject.feature.commentgallery.CommentGalleryActivity
 import com.example.andibagproject.feature.gallery.main.viewmodel.GalleryViewModel
 import com.example.andibagproject.feature.makegallery.ui.MakeGalleryActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,6 +20,9 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>(R.layout.fragment_g
         binding.run {
             imageAdd.setOnClickListener {
                 startActivity(Intent( context,MakeGalleryActivity::class.java))
+            }
+            imageAddCopy.setOnClickListener {
+                startActivity(Intent(context, CommentGalleryActivity::class.java))
             }
 
         }
