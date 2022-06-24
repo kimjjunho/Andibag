@@ -4,10 +4,10 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.andibagproject.data.gallery.SeeGalleryRepository
+import com.example.andibagproject.data.gallery.GalleryRepository
 
-class SeeGalleryViewModel(
-    private val rp : SeeGalleryRepository
+class GalleryViewModel(
+    private val rp : GalleryRepository
 ):ViewModel() {
 
     val success: MutableLiveData<Boolean> = MutableLiveData()

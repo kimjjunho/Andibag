@@ -4,12 +4,12 @@ import android.content.Intent
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.FragmentGalleryBinding
 import com.example.andibagproject.feature.base.BaseFragment
-import com.example.andibagproject.feature.gallery.main.viewmodel.SeeGalleryViewModel
+import com.example.andibagproject.feature.gallery.main.viewmodel.GalleryViewModel
 import com.example.andibagproject.feature.makegallery.ui.MakeGalleryActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GalleryFragment : BaseFragment<FragmentGalleryBinding>(R.layout.fragment_gallery) {
-    val vm : SeeGalleryViewModel by viewModel()
+    val vm : GalleryViewModel by viewModel()
 
     override fun initView() {
 

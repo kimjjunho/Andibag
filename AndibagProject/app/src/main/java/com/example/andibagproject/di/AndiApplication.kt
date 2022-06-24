@@ -18,7 +18,7 @@ class AndiApplication : Application(){
                     loginModule,
                     makeIdModule,
                     makeGalleryModule,
-                    seeGalleryModule,
+                    galleryModule,
                     addFriendModule,
                     loadFriendModule,
                     commentModule,
