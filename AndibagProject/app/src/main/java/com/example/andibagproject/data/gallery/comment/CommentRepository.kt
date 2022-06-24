@@ -13,4 +13,14 @@ class CommentRepository {
         commentAPI.writeComment(ACCESS_TOKEN,content,id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
+    fun deleteComment(id: Int) : @NonNull Single<Response<Unit>> =
+        commentAPI.deleteComment(ACCESS_TOKEN,id)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+
+    fun patchComment(content: String, id: Int) : @NonNull Single<Response<Unit>> =
+        commentAPI.patchComment(ACCESS_TOKEN,content,id)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
 }
