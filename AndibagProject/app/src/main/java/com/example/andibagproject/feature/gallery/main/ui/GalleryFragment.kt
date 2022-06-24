@@ -1,12 +1,10 @@
-package com.example.andibagproject.feature.gallery.ui
+package com.example.andibagproject.feature.gallery.main.ui
 
-import android.content.ContentValues.TAG
 import android.content.Intent
-import android.util.Log
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.FragmentGalleryBinding
 import com.example.andibagproject.feature.base.BaseFragment
-import com.example.andibagproject.feature.gallery.viewmodel.SeeGalleryViewModel
+import com.example.andibagproject.feature.gallery.main.viewmodel.SeeGalleryViewModel
 import com.example.andibagproject.feature.makegallery.ui.MakeGalleryActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

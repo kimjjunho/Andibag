@@ -1,4 +1,4 @@
-package com.example.andibagproject.feature.gallery.viewmodel
+package com.example.andibagproject.feature.gallery.main.viewmodel
 
 import android.content.ContentValues.TAG
 import android.util.Log

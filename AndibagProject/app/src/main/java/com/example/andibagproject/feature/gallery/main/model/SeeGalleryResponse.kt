@@ -1,4 +1,4 @@
-package com.example.andibagproject.feature.gallery.model
+package com.example.andibagproject.feature.gallery.main.model
 
 import com.google.gson.annotations.SerializedName
 
