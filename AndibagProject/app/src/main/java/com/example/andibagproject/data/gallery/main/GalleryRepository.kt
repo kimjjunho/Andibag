@@ -1,4 +1,4 @@
-package com.example.andibagproject.data.gallery
+package com.example.andibagproject.data.gallery.main
 
 import com.example.andibagproject.ACCESS_TOKEN
 import com.example.andibagproject.data.galleryAPI
@@ -11,7 +11,7 @@ import retrofit2.Response
 
 class GalleryRepository {
     fun seeGallery() : @NonNull Single<Response<SeeGalleryResponse>> =
-        galleryAPI.see(ACCESS_TOKEN)
+        galleryAPI.seeGallery(ACCESS_TOKEN)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 }

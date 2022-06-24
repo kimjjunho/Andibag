@@ -4,7 +4,7 @@ import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.andibagproject.data.gallery.GalleryRepository
+import com.example.andibagproject.data.gallery.main.GalleryRepository
 
 class GalleryViewModel(
     private val rp : GalleryRepository
