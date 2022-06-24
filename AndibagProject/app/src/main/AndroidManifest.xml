@@ -14,6 +14,9 @@
         android:theme="@style/Theme.AndibagProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".CommentGalleryActivity"
+            android:exported="false" />
+        <activity
             android:name=".handler.ErrorActivity"
             android:exported="false" />
         <activity
