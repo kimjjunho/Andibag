@@ -11,7 +11,6 @@ import com.example.andibagproject.data.makeid.MakeIdAPI
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 private val retrofit: Retrofit = Retrofit.Builder().apply {
     baseUrl("http://15.164.67.132:8080")

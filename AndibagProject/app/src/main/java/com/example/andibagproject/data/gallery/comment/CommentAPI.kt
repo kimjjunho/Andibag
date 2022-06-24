@@ -9,19 +9,19 @@ interface CommentAPI {
     fun writeComment(
         @Header("Authorization") header: String,
         @Body content: String,
-        @Path("id") id: Int
+        @Path("id") id: Long
     ):Single<Response<Unit>>
 
     @DELETE("comment/{id}")
     fun deleteComment(
         @Header("Authorization") header: String,
-        @Path("id") id: Int
+        @Path("id") id: Long
     ):Single<Response<Unit>>
 
     @PUT("comment/{id}")
     fun patchComment(
         @Header("Authorization") header: String,
         @Body content: String,
-        @Path("id") id: Int
+        @Path("id") id: Long
     ):Single<Response<Unit>>
 }

@@ -9,17 +9,17 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
 class CommentRepository {
-    fun writeComment(content: String, id: Int) : @NonNull Single<Response<Unit>> =
+    fun writeComment(content: String, id: Long) : @NonNull Single<Response<Unit>> =
         commentAPI.writeComment(ACCESS_TOKEN,content,id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 
-    fun deleteComment(id: Int) : @NonNull Single<Response<Unit>> =
+    fun deleteComment(id: Long) : @NonNull Single<Response<Unit>> =
         commentAPI.deleteComment(ACCESS_TOKEN,id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 
-    fun patchComment(content: String, id: Int) : @NonNull Single<Response<Unit>> =
+    fun patchComment(content: String, id: Long) : @NonNull Single<Response<Unit>> =
         commentAPI.patchComment(ACCESS_TOKEN,content,id)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())

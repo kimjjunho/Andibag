@@ -9,19 +9,19 @@ interface ReplyAPI {
     fun writeReply(
         @Header("Authorization") header: String,
         @Body content: String,
-        @Path("id") id: Int
+        @Path("id") id: Long
     ):Single<Response<Unit>>
 
     @DELETE("reply/{id}")
     fun deleteReply(
         @Header("Authorization") header: String,
-        @Path("id") id: Int
+        @Path("id") id: Long
     ):Single<Response<Unit>>
 
     @PUT("reply/{id}")
     fun patchReply(
         @Header("Authorization") header: String,
         @Body content: String,
-        @Path("id") id: Int
+        @Path("id") id: Long
     ):Single<Response<Unit>>
 }
