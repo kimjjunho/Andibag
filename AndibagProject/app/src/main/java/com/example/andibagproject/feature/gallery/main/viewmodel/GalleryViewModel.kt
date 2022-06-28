@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.andibagproject.data.gallery.main.GalleryRepository
+import com.example.andibagproject.feature.gallery.main.model.SeeGalleryCategory
 
 class GalleryViewModel(
     private val rp : GalleryRepository
@@ -13,8 +14,8 @@ class GalleryViewModel(
     val success: MutableLiveData<Boolean> = MutableLiveData()
     val fail: MutableLiveData<Int> = MutableLiveData()
 
-    fun seeGallery(){
-        rp.seeGallery()
+    fun seeGallery(seeGallery: SeeGalleryCategory){
+        rp.seeGallery(seeGallery)
             .doOnError { throwable->
                 Log.d(TAG, "Error: $throwable")
             }

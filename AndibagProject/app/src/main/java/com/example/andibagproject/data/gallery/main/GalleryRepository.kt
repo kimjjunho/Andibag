@@ -2,6 +2,7 @@ package com.example.andibagproject.data.gallery.main
 
 import com.example.andibagproject.ACCESS_TOKEN
 import com.example.andibagproject.data.galleryAPI
+import com.example.andibagproject.feature.gallery.main.model.SeeGalleryCategory
 import com.example.andibagproject.feature.gallery.main.model.SeeGalleryResponse
 import com.example.andibagproject.feature.gallery.main.model.WriteGalleryRequest
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -11,8 +12,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
 class GalleryRepository {
-    fun seeGallery() : @NonNull Single<Response<SeeGalleryResponse>> =
-        galleryAPI.seeGallery(ACCESS_TOKEN)
+    fun seeGallery(seeGalleryCategory: SeeGalleryCategory) : @NonNull Single<Response<SeeGalleryResponse>> =
+        galleryAPI.seeGallery(ACCESS_TOKEN, seeGalleryCategory)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 
