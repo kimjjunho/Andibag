@@ -35,6 +35,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
             }
             btnLogin.setOnClickListener {
                 startActivity(Intent(applicationContext, MainActivity::class.java))
+                finish()
                 vm.login(LoginRequest(etId.text.toString(),etPassword.text.toString()))
             }
         }

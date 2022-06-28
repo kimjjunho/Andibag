@@ -65,4 +65,7 @@ class MainActivity : AppCompatActivity() {
         mBinding.menuControl.setImageResource(R.drawable.main_image_control)
     }
 
+    fun finishActivity(){
+        finish()
+    }
 }
