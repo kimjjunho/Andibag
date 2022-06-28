@@ -1,4 +1,4 @@
-package com.example.andibagproject.feature.gallery.comment.data
+package com.example.andibagproject.feature.gallery.comment.model
 
 import com.google.gson.annotations.SerializedName
 

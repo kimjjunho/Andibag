@@ -1,6 +1,6 @@
 package com.example.andibagproject.data.gallery.comment
 
-import com.example.andibagproject.feature.gallery.comment.data.LoadCommentResponse
+import com.example.andibagproject.feature.gallery.comment.model.LoadCommentResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
 import retrofit2.http.*

@@ -2,7 +2,7 @@ package com.example.andibagproject.data.gallery.comment
 
 import com.example.andibagproject.ACCESS_TOKEN
 import com.example.andibagproject.data.commentAPI
-import com.example.andibagproject.feature.gallery.comment.data.LoadCommentResponse
+import com.example.andibagproject.feature.gallery.comment.model.LoadCommentResponse
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.core.Single
