@@ -14,4 +14,10 @@ class AddFriendRepository {
         addFriendAPI.addFriend(ACCESS_TOKEN,addFriendRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
+    fun loadFriend(addFriendRequest: AddFriendRequest) : @NonNull Single<Response<Unit>> =
+        addFriendAPI.loadFriend(ACCESS_TOKEN,addFriendRequest)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+
 }
