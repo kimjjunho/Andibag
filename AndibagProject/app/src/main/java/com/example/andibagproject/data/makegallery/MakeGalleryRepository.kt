@@ -15,4 +15,9 @@ class MakeGalleryRepository {
         makeGalleryAPI.makeGallery(ACCESS_TOKEN,makeGalleryRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
+    fun fixGallery(makeGalleryRequest: MakeGalleryRequest, id: Long) : @NonNull Single<Response<Unit>> =
+        makeGalleryAPI.fixGallery(ACCESS_TOKEN,makeGalleryRequest,id)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
 }
