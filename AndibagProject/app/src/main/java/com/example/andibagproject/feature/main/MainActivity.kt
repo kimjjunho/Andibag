@@ -8,28 +8,22 @@ import com.example.andibagproject.R
 import com.example.andibagproject.feature.chat.ChatFragment
 import com.example.andibagproject.feature.control.ControlFragment
 import com.example.andibagproject.databinding.ActivityMainBinding
+import com.example.andibagproject.feature.base.BaseActivity
 import com.example.andibagproject.feature.friend.load.ui.FriendFragment
 import com.example.andibagproject.feature.gallery.main.ui.GalleryFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
-    val TAG = "MainActivity"
-
-    private lateinit var mBinding : ActivityMainBinding
-    private val binding get() = mBinding
+class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private var bottomNavigationView: BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        mBinding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         /*supportFragmentManager.beginTransaction().replace(R.id.main_frame, FriendFragment()).commit()
         mBinding.menuFriend.setImageResource(R.drawable.main_image_friend_black)*/
 
-        bottomNavigationView = findViewById<View> (R.id.main_bottom_navigation) as BottomNavigationView
+        bottomNavigationView = binding.mainBottomNavigation
         bottomNavigationView!!.setOnNavigationItemSelectedListener(this)
         bottomNavigationView!!.selectedItemId = R.id.menu_friend
 
@@ -112,4 +106,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     fun finishActivity(){
         finish()
     }
+
+    override fun observeEvent() {}
 }

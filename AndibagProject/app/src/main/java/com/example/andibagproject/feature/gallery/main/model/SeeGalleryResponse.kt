@@ -7,5 +7,6 @@ data class SeeGalleryResponse(
     @SerializedName("title") val title: String,
     @SerializedName("content") val content: String,
     @SerializedName("createAt") val createAt: String,
-    @SerializedName("modifyAt") val modifyAt: String
+    @SerializedName("modifyAt") val modifyAt: String,
+    val name: String
 )

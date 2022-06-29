@@ -1,89 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".feature.main.MainActivity">
-
-    <!-- <LinearLayout
-        android:id="@+id/linearLayout"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="#F2F2F2"
-        android:weightSum="4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2">
+        android:layout_height="match_parent"
+        tools:context=".feature.main.MainActivity">
 
-        <ImageButton
-            android:id="@+id/menu_friend"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:src="@drawable/main_image_user" />
+        <!-- <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#F2F2F2"
+            android:weightSum="4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2">
 
-        <ImageButton
-            android:id="@+id/menu_chat"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:src="@drawable/main_image_chat" />
+            <ImageButton
+                android:id="@+id/menu_friend"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/main_image_user" />
 
-        <ImageButton
-            android:id="@+id/menu_grallery"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:src="@drawable/main_image_gallery" />
+            <ImageButton
+                android:id="@+id/menu_chat"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/main_image_chat" />
 
-        <ImageButton
-            android:id="@+id/menu_control"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:scaleType="fitCenter"
-            android:src="@drawable/main_image_control" />
-    </LinearLayout> -->
+            <ImageButton
+                android:id="@+id/menu_grallery"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/main_image_gallery" />
 
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+            <ImageButton
+                android:id="@+id/menu_control"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:src="@drawable/main_image_control" />
+        </LinearLayout> -->
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/main_bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/main_navigation_background"
-        android:fontFamily="@font/inter_semibold"
-        android:includeFontPadding="false"
-        app:itemIconTint="@drawable/main_bottom_icon_color"
-        app:itemTextColor="@drawable/main_bottom_icon_color"
-        app:menu="@menu/main_menu_bottom"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_frame" />
+        <FrameLayout
+            android:id="@+id/main_frame"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.92" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/main_bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/main_navigation_background"
+            android:fontFamily="@font/inter_semibold"
+            android:includeFontPadding="false"
+            app:itemIconTint="@drawable/main_bottom_icon_color"
+            app:itemTextColor="@drawable/main_bottom_icon_color"
+            app:menu="@menu/main_menu_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/main_frame" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.92" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
