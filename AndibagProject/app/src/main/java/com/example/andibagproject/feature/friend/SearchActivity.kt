@@ -1,8 +1,12 @@
 package com.example.andibagproject.feature.friend
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import androidx.core.view.size
 import com.example.andibagproject.databinding.ActivitySearchBinding
+import com.example.andibagproject.feature.friend.add.ui.AddFriendActivity
 
 class SearchActivity : AppCompatActivity() {
 
@@ -14,9 +18,19 @@ class SearchActivity : AppCompatActivity() {
         mBinding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.imageBack.setOnClickListener {
-            finish()
+        binding.run {
+            imageBack.setOnClickListener {
+                finish()
+            }
 
+            if(rv.size != 0){
+                binding.layoutFindFriend.visibility = View.INVISIBLE
+            }
+
+            btnAddFriendPage.setOnClickListener {
+                startActivity(Intent(applicationContext,AddFriendActivity::class.java))
+                finish()
+            }
         }
     }
 }
