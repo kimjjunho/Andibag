@@ -20,6 +20,8 @@
         <entry key="app/src/main/res/drawable/login_btn.xml" value="0.33489583333333334" />
         <entry key="app/src/main/res/drawable/login_btn_off.xml" value="0.3494791666666667" />
         <entry key="app/src/main/res/drawable/login_btn_on.xml" value="0.33489583333333334" />
+        <entry key="app/src/main/res/drawable/main_bottom_icon_color.xml" value="0.174" />
+        <entry key="app/src/main/res/drawable/main_navigation_background.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/search_image_search.xml" value="0.3494791666666667" />
         <entry key="app/src/main/res/drawable/text_input_color.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.2591493570722057" />
@@ -27,7 +29,7 @@
         <entry key="app/src/main/res/layout/activity_comment_gallery.xml" value="0.18674316406250002" />
         <entry key="app/src/main/res/layout/activity_error.xml" value="0.24620369626927813" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.318393975909141" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3193313773981588" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33037568892159636" />
         <entry key="app/src/main/res/layout/activity_make_gallery.xml" value="0.23525839444492563" />
         <entry key="app/src/main/res/layout/activity_make_id.xml" value="0.3454528290498382" />
         <entry key="app/src/main/res/layout/activity_search.xml" value="0.235855094568004" />
@@ -37,6 +39,7 @@
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.31521739130434784" />
         <entry key="app/src/main/res/layout/item_chating.xml" value="0.46090994908292904" />
         <entry key="app/src/main/res/layout/item_gallery.xml" value="0.42282525069920013" />
+        <entry key="app/src/main/res/menu/main_menu_bottom.xml" value="0.3182291666666667" />
       </map>
     </option>
   </component>

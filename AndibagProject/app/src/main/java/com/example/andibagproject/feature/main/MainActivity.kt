@@ -2,18 +2,23 @@ package com.example.andibagproject.feature.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import com.example.andibagproject.R
 import com.example.andibagproject.feature.chat.ChatFragment
 import com.example.andibagproject.feature.control.ControlFragment
 import com.example.andibagproject.databinding.ActivityMainBinding
 import com.example.andibagproject.feature.friend.load.ui.FriendFragment
 import com.example.andibagproject.feature.gallery.main.ui.GalleryFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     val TAG = "MainActivity"
 
     private lateinit var mBinding : ActivityMainBinding
     private val binding get() = mBinding
+
+    private var bottomNavigationView: BottomNavigationView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,13 +26,52 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportFragmentManager.beginTransaction().replace(R.id.main_frame, FriendFragment()).commit()
-        mBinding.menuFriend.setImageResource(R.drawable.main_image_friend_black)
-        moveFrag()
+        /*supportFragmentManager.beginTransaction().replace(R.id.main_frame, FriendFragment()).commit()
+        mBinding.menuFriend.setImageResource(R.drawable.main_image_friend_black)*/
+
+        bottomNavigationView = findViewById<View> (R.id.main_bottom_navigation) as BottomNavigationView
+        bottomNavigationView!!.setOnNavigationItemSelectedListener(this)
+        bottomNavigationView!!.selectedItemId = R.id.menu_friend
+
+        //moveFrag()
 
     }
 
-    private fun moveFrag(){
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.menu_friend ->{
+                val friendFragment = FriendFragment()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.main_frame, friendFragment)
+                    .commit()
+                return true
+            }
+            R.id.menu_chat ->{
+                val chatFragment = ChatFragment()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.main_frame, chatFragment)
+                    .commit()
+                return true
+            }
+            R.id.menu_gallery ->{
+                val galleryFragment = GalleryFragment()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.main_frame, galleryFragment)
+                    .commit()
+                return true
+            }
+            R.id.menu_control ->{
+                val controlFragment = ControlFragment()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.main_frame, controlFragment)
+                    .commit()
+                return true
+            }
+        }
+        return false
+    }
+
+    /*private fun moveFrag(){
         mBinding.menuFriend.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.main_frame, FriendFragment())
@@ -63,7 +107,7 @@ class MainActivity : AppCompatActivity() {
         mBinding.menuChat.setImageResource(R.drawable.main_image_chat)
         mBinding.menuGrallery.setImageResource(R.drawable.main_image_gallery)
         mBinding.menuControl.setImageResource(R.drawable.main_image_control)
-    }
+    }*/
 
     fun finishActivity(){
         finish()
