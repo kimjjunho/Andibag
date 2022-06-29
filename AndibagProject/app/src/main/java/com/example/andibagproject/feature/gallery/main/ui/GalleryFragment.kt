@@ -79,8 +79,12 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>(R.layout.fragment_g
         }
     }
 
-    fun startCommentGallery() {
-        startActivity(Intent(context, CommentGalleryActivity::class.java))
+    fun startCommentGallery(title: String, content:String) {
+        val intent = Intent(context,CommentGalleryActivity::class.java)
+        intent.putExtra("title",title)
+        intent.putExtra("content", content)
+        startActivity(intent)
+        println(title)
     }
 
     override fun onResume() {

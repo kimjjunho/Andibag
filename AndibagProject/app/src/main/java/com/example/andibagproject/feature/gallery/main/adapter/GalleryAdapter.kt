@@ -13,6 +13,7 @@ import com.example.andibagproject.databinding.FragmentGalleryBinding
 import com.example.andibagproject.feature.gallery.main.model.SeeGalleryResponse
 import com.example.andibagproject.feature.gallery.main.ui.GalleryFragment
 import com.example.andibagproject.feature.main.MainActivity
+import org.w3c.dom.Text
 
 class GalleryAdapter(private val arrayList: ArrayList<SeeGalleryResponse>, private val binding: GalleryFragment):RecyclerView.Adapter<GalleryAdapter.CustomViewHolder>() {
 
@@ -23,6 +24,11 @@ class GalleryAdapter(private val arrayList: ArrayList<SeeGalleryResponse>, priva
 
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         holder.name.text = arrayList[position].name
+        holder.title.text = arrayList[position].title
+        holder.content.text = arrayList[position].content
+        holder.createAt.text = arrayList[position].createAt
+        holder.modifyAt.text = arrayList[position].modifyAt
+
         holder.apply { click(binding) }
     }
 
@@ -32,10 +38,14 @@ class GalleryAdapter(private val arrayList: ArrayList<SeeGalleryResponse>, priva
 
     class CustomViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
         val name = itemView.findViewById<TextView>(R.id.item_text_name)
+        val title = itemView.findViewById<TextView>(R.id.item_text_title)
+        val content = itemView.findViewById<TextView>(R.id.item_text_content)
+        val createAt = itemView.findViewById<TextView>(R.id.item_text_createAt)
+        val modifyAt = itemView.findViewById<TextView>(R.id.item_text_modifyAt)
 
         fun click(binding: GalleryFragment){
             itemView.setOnClickListener {
-                binding.startCommentGallery()
+                binding.startCommentGallery(title.text.toString(), content.text.toString())
             }
         }
     }
