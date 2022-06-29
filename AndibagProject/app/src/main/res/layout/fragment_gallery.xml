@@ -35,17 +35,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView5" />
 
-        <ImageButton
-            android:id="@+id/image_add_copy"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/gallery_image_add"
-            app:layout_constraintBottom_toBottomOf="@+id/textView5"
-            app:layout_constraintEnd_toStartOf="@+id/image_add"
-            app:layout_constraintTop_toTopOf="@+id/textView5" />
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"

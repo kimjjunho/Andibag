@@ -10,6 +10,7 @@ import com.example.andibagproject.feature.gallery.main.adapter.GalleryAdapter
 import com.example.andibagproject.feature.gallery.main.model.SeeGalleryCategory
 import com.example.andibagproject.feature.gallery.main.model.SeeGalleryResponse
 import com.example.andibagproject.feature.gallery.main.viewmodel.GalleryViewModel
+import com.example.andibagproject.feature.main.MainActivity
 import com.example.andibagproject.feature.makegallery.ui.MakeGalleryActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -38,8 +39,6 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>(R.layout.fragment_g
         add(SeeGalleryResponse(0,"title","content","2022-06-29","2022-06-29,","문은소 vs 문혜원"))
         add(SeeGalleryResponse(0,"title","content","2022-06-29","2022-06-29,","문은소 vs 문혜원"))
         add(SeeGalleryResponse(0,"title","content","2022-06-29","2022-06-29,","문은소 vs 문혜원"))
-
-
     }
 
     override fun initView() {
@@ -52,9 +51,6 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>(R.layout.fragment_g
         binding.run {
             imageAdd.setOnClickListener {
                 startActivity(Intent( context,MakeGalleryActivity::class.java))
-            }
-            imageAddCopy.setOnClickListener {
-                startActivity(Intent(context, CommentGalleryActivity::class.java))
             }
 
             rv1.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,false)
@@ -83,13 +79,17 @@ class GalleryFragment : BaseFragment<FragmentGalleryBinding>(R.layout.fragment_g
         }
     }
 
+    fun startCommentGallery() {
+        startActivity(Intent(context, CommentGalleryActivity::class.java))
+    }
+
     override fun onResume() {
         super.onResume()
 
         binding.run {
-            rv1.adapter = GalleryAdapter(galleryNewList)
-            rv2.adapter = GalleryAdapter(galleryFriendList)
-            rv3.adapter = GalleryAdapter(galleryGoodList)
+            rv1.adapter = GalleryAdapter(galleryNewList, this@GalleryFragment)
+            rv2.adapter = GalleryAdapter(galleryFriendList, this@GalleryFragment)
+            rv3.adapter = GalleryAdapter(galleryGoodList, this@GalleryFragment)
 
         }
     }

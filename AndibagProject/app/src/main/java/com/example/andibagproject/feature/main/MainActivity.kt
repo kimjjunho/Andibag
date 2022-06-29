@@ -1,5 +1,6 @@
 package com.example.andibagproject.feature.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -9,6 +10,7 @@ import com.example.andibagproject.feature.chat.ChatFragment
 import com.example.andibagproject.feature.control.ControlFragment
 import com.example.andibagproject.databinding.ActivityMainBinding
 import com.example.andibagproject.feature.base.BaseActivity
+import com.example.andibagproject.feature.commentgallery.CommentGalleryActivity
 import com.example.andibagproject.feature.friend.load.ui.FriendFragment
 import com.example.andibagproject.feature.gallery.main.ui.GalleryFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
