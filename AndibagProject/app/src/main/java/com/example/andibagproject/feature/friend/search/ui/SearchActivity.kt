@@ -3,6 +3,7 @@ package com.example.andibagproject.feature.friend.search.ui
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.Button
 import androidx.core.view.size
@@ -12,13 +13,16 @@ import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivitySearchBinding
 import com.example.andibagproject.feature.base.BaseActivity
 import com.example.andibagproject.feature.friend.add.ui.AddFriendActivity
+import com.example.andibagproject.feature.friend.search.adapter.RecyclerViewEmptySupport
 import com.example.andibagproject.feature.friend.search.adapter.SearchFriendAdapter
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
+import kotlinx.coroutines.delay
+import java.text.FieldPosition
 
 class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_search) {
 
     private val searchFriendAdapter : SearchFriendAdapter by lazy {
-        SearchFriendAdapter(binding.rv)
+        SearchFriendAdapter(binding.rv,this)
     }
 
     private val searchFriendList = arrayListOf<SearchFriendResponse>().apply {
@@ -32,8 +36,6 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
         super.onCreate(savedInstanceState)
 
         binding.run {
-            visibilitySetting()
-
             imageBack.setOnClickListener {
                 finish()
             }
@@ -47,12 +49,19 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
                 settingDialog()
             }
 
+            imageSearch.setOnClickListener {
+                searchFriendAdapter.addItem(editText.text.toString())
+                checkRecyclerViewAdapterEmpty()
+            }
+
             rv.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                 addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
                 adapter = searchFriendAdapter
+
             }
             searchFriendAdapter.submitList(searchFriendList)
+            checkRecyclerViewAdapterEmpty()
         }
     }
 
@@ -68,19 +77,19 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
         dialogBtnCancel.setOnClickListener {
             dialog.dismiss()
         }
+
         dialogBtnCheck.setOnClickListener {
             dialog.dismiss()
             searchFriendAdapter.removeAll()
+
+            checkRecyclerViewAdapterEmpty()
         }
     }
 
-    private fun visibilitySetting(){
-        binding.run {
-            if(rv.size != 0){
-                layoutFindFriend.visibility = View.INVISIBLE
-                btnDelete.visibility = View.VISIBLE
-            }
-        }
+    fun checkRecyclerViewAdapterEmpty(){
+        Handler().postDelayed({
+            val emptyObserver = RecyclerViewEmptySupport(binding.rv, binding.layoutFindFriend, binding.btnDelete)
+            searchFriendAdapter.registerAdapterDataObserver(emptyObserver) },200)
     }
 
     override fun observeEvent() {}

@@ -1,15 +1,18 @@
 package com.example.andibagproject.feature.friend.search.adapter
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.andibagproject.databinding.ItemFriendSearchBinding
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
-import java.util.*
+import com.example.andibagproject.feature.friend.search.ui.SearchActivity
 
-class  SearchFriendAdapter(private val recyclerView: RecyclerView) : ListAdapter<SearchFriendResponse, RecyclerView.ViewHolder>(MyDiffCallback()){
+class  SearchFriendAdapter(private val recyclerView: RecyclerView, private val binding: SearchActivity) : ListAdapter<SearchFriendResponse, RecyclerView.ViewHolder>(MyDiffCallback()){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         SearchFriendViewHolder(
             ItemFriendSearchBinding.inflate(
@@ -22,7 +25,7 @@ class  SearchFriendAdapter(private val recyclerView: RecyclerView) : ListAdapter
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if(holder is SearchFriendViewHolder){
             val binding = getItem(position) as SearchFriendResponse
-            holder.bind(binding,)
+            holder.bind(binding)
         }
     }
 
@@ -30,6 +33,7 @@ class  SearchFriendAdapter(private val recyclerView: RecyclerView) : ListAdapter
         val list = currentList.toMutableList()
         list.removeAt(position)
         submitList(list)
+        binding.checkRecyclerViewAdapterEmpty()
     }
 
     fun removeAll(){
@@ -38,7 +42,11 @@ class  SearchFriendAdapter(private val recyclerView: RecyclerView) : ListAdapter
         submitList(list)
     }
 
-
+    fun addItem(name: String){
+        val list = currentList.toMutableList()
+        list.add(0,SearchFriendResponse(name))
+        submitList(list)
+    }
 }
 
 class MyDiffCallback : DiffUtil.ItemCallback<SearchFriendResponse>(){
@@ -60,7 +68,6 @@ class SearchFriendViewHolder(private val binding: ItemFriendSearchBinding, priva
                 (recyclerView.adapter as SearchFriendAdapter).removeItem(layoutPosition)
             }
         }
-
     }
 
     fun setAlpha(alpha: Float){
