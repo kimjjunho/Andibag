@@ -51,7 +51,7 @@
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
             android:background="#00ff0000"
             android:text="모두 삭제"
             android:textColor="#AAAAAA"
@@ -67,7 +67,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_delete" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_delete"
+            tools:listitem="@layout/item_friend_search"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_find_friend"

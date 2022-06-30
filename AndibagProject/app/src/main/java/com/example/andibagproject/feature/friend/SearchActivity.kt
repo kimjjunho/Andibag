@@ -33,6 +33,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
             btnDelete.setOnClickListener {
                 settingDialog()
             }
+
         }
     }
 
