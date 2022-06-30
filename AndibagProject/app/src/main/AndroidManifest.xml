@@ -26,7 +26,7 @@
             android:name=".feature.friend.add.ui.AddFriendActivity"
             android:exported="false" />
         <activity
-            android:name=".feature.friend.SearchActivity"
+            android:name=".feature.friend.search.ui.SearchActivity"
             android:exported="false" />
         <activity
             android:name=".feature.makeid.ui.MakeIdActivity"

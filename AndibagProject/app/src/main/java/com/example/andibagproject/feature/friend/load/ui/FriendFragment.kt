@@ -2,12 +2,11 @@ package com.example.andibagproject.feature.friend.load.ui
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.util.Log
-import android.widget.Toast
 import com.example.andibagproject.feature.main.MainActivity
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.FragmentFriendBinding
 import com.example.andibagproject.feature.base.BaseFragment
-import com.example.andibagproject.feature.friend.SearchActivity
+import com.example.andibagproject.feature.friend.search.ui.SearchActivity
 import com.example.andibagproject.feature.friend.add.ui.AddFriendActivity
 import com.example.andibagproject.feature.friend.load.viewmodel.FriendViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

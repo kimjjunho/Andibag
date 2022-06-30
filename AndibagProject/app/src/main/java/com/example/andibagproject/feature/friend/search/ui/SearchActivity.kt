@@ -1,19 +1,32 @@
-package com.example.andibagproject.feature.friend
+package com.example.andibagproject.feature.friend.search.ui
 
 import android.app.Dialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.core.view.size
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivitySearchBinding
 import com.example.andibagproject.feature.base.BaseActivity
 import com.example.andibagproject.feature.friend.add.ui.AddFriendActivity
+import com.example.andibagproject.feature.friend.search.adapter.SearchFriendAdapter
+import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
 
 class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_search) {
+
+    private val searchFriendAdapter : SearchFriendAdapter by lazy {
+        SearchFriendAdapter(binding.rv)
+    }
+
+    private val searchFriendList = arrayListOf<SearchFriendResponse>().apply {
+        add(SearchFriendResponse("user1"))
+        add(SearchFriendResponse("user2"))
+        add(SearchFriendResponse("user3"))
+        add(SearchFriendResponse("user4"))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +47,12 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
                 settingDialog()
             }
 
+            rv.apply {
+                layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
+                addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
+                adapter = searchFriendAdapter
+            }
+            searchFriendAdapter.submitList(searchFriendList)
         }
     }
 
@@ -50,7 +69,8 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
             dialog.dismiss()
         }
         dialogBtnCheck.setOnClickListener {
-            Toast.makeText(applicationContext,"모두 삭제되었습니다",Toast.LENGTH_SHORT).show()
+            dialog.dismiss()
+            searchFriendAdapter.removeAll()
         }
     }
 
