@@ -27,7 +27,7 @@ class ChatAdapter(private val chatList:ArrayList<LoadFriendResponse>):RecyclerVi
 
     class CustomViewHolder(view: View):RecyclerView.ViewHolder(view) {
         val useView = view
-        val itemTextName : TextView = useView.findViewById(R.id.text_item_name)
+        val itemTextName : TextView = useView.findViewById(R.id.item_text_name)
 
         fun bind(list: LoadFriendResponse){
             itemTextName.text = list.nickname
