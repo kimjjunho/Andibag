@@ -5,19 +5,35 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.andibagproject.R
+import com.example.andibagproject.databinding.FragmentChatBinding
+import com.example.andibagproject.feature.base.BaseFragment
+import com.example.andibagproject.feature.friend.load.adapter.ChatAdapter
+import com.example.andibagproject.feature.friend.load.model.LoadFriendResponse
 
-class ChatFragment : Fragment() {
+class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private val chatAdapter : ChatAdapter by lazy {
+        ChatAdapter(chatList)
+    }
+    private val chatList = arrayListOf<LoadFriendResponse>().apply {
+        add(LoadFriendResponse(1,"nickname","01012345678"))
+    }
+    override fun initView() {
+        binding.run {
+
+            rv.apply {
+                adapter = chatAdapter
+                layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+                setHasFixedSize(true)
+            }
+
+        }
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_chat, container, false)
-    }
+    override fun observeEvent() {}
 
-    companion object {
-    }
+
 }
