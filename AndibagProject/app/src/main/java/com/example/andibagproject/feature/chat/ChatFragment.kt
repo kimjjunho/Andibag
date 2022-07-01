@@ -19,6 +19,7 @@ class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {
     }
     private val chatList = arrayListOf<LoadFriendResponse>().apply {
         add(LoadFriendResponse(1,"nickname","01012345678"))
+        add(LoadFriendResponse(1,"nickname","01012345678"))
     }
     override fun initView() {
         binding.run {

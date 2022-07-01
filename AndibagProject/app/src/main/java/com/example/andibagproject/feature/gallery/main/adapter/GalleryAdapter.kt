@@ -37,7 +37,7 @@ class GalleryAdapter(private val arrayList: ArrayList<SeeGalleryResponse>, priva
     }
 
     class CustomViewHolder(itemView: View):RecyclerView.ViewHolder(itemView) {
-        val name = itemView.findViewById<TextView>(R.id.item_text_name)
+        val name = itemView.findViewById<TextView>(R.id.item_gallery_text_name)
         val title = itemView.findViewById<TextView>(R.id.item_text_title)
         val content = itemView.findViewById<TextView>(R.id.item_text_content)
         val createAt = itemView.findViewById<TextView>(R.id.item_text_createAt)
