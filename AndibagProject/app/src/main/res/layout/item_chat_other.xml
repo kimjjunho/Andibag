@@ -9,6 +9,7 @@
         android:id="@+id/item_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:background="@drawable/chat_item_other"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,9 +24,12 @@
             android:paddingTop="20dp"
             android:paddingRight="20dp"
             android:paddingBottom="20dp"
-            android:text="한은소가 문정민을 좋아해 ㅎ\ndafdfqefdseeeeeeeeeeeeeeeeeeeee"
             android:textColor="@color/black"
-            android:textSize="11dp" />
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
