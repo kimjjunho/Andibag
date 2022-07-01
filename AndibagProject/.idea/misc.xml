@@ -27,6 +27,7 @@
         <entry key="app/src/main/res/drawable/text_input_color.xml" value="0.15" />
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.2591493570722057" />
         <entry key="app/src/main/res/layout/activity_add_friend.xml" value="0.24723510742187502" />
+        <entry key="app/src/main/res/layout/activity_chatting.xml" value="0.20332641601562512" />
         <entry key="app/src/main/res/layout/activity_comment_gallery.xml" value="0.18674316406250002" />
         <entry key="app/src/main/res/layout/activity_error.xml" value="0.24620369626927813" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.318393975909141" />
