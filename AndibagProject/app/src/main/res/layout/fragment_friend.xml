@@ -94,7 +94,7 @@
             android:layout_marginTop="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
-            tools:listitem="@layout/item_chating"/>
+            tools:listitem="@layout/item_chatting"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

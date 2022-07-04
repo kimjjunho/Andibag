@@ -17,6 +17,7 @@
         <entry key="app/src/main/res/drawable/edt_underline.xml" value="0.15" />
         <entry key="app/src/main/res/drawable/error_btn_back.xml" value="0.2675925925925926" />
         <entry key="app/src/main/res/drawable/error_btn_login.xml" value="0.2675925925925926" />
+        <entry key="app/src/main/res/drawable/item_chatting_delete.xml" value="0.174" />
         <entry key="app/src/main/res/drawable/item_gallery_image_background.xml" value="0.33489583333333334" />
         <entry key="app/src/main/res/drawable/login_btn.xml" value="0.33489583333333334" />
         <entry key="app/src/main/res/drawable/login_btn_off.xml" value="0.3494791666666667" />
@@ -43,7 +44,8 @@
         <entry key="app/src/main/res/layout/fragment_friend.xml" value="0.31521739130434784" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.31521739130434784" />
         <entry key="app/src/main/res/layout/item_chat_other.xml" value="0.42601868371999757" />
-        <entry key="app/src/main/res/layout/item_chating.xml" value="0.46090994908292904" />
+        <entry key="app/src/main/res/layout/item_chating.xml" value="0.331265173692304" />
+        <entry key="app/src/main/res/layout/item_chatting.xml" value="0.22760306431730398" />
         <entry key="app/src/main/res/layout/item_friend_search.xml" value="0.6313913317694182" />
         <entry key="app/src/main/res/layout/item_gallery.xml" value="0.42282525069920013" />
         <entry key="app/src/main/res/menu/main_menu_bottom.xml" value="0.3182291666666667" />

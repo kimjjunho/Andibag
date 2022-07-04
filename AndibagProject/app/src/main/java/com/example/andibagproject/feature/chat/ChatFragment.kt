@@ -1,15 +1,10 @@
 package com.example.andibagproject.feature.chat
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.FragmentChatBinding
 import com.example.andibagproject.feature.base.BaseFragment
-import com.example.andibagproject.feature.friend.load.adapter.ChatAdapter
+import com.example.andibagproject.feature.chat.adapter.ChatAdapter
 import com.example.andibagproject.feature.friend.load.model.LoadFriendResponse
 
 class ChatFragment : BaseFragment<FragmentChatBinding>(R.layout.fragment_chat) {

@@ -1,4 +1,4 @@
-package com.example.andibagproject.feature.friend.load.adapter
+package com.example.andibagproject.feature.chat.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ class ChatAdapter(private val chatList:ArrayList<LoadFriendResponse>):RecyclerVi
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomViewHolder {
         //val view = ItemChatingBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        val subView = LayoutInflater.from(parent.context).inflate(R.layout.item_chating,parent,false)
+        val subView = LayoutInflater.from(parent.context).inflate(R.layout.item_chatting,parent,false)
         return CustomViewHolder(subView)
     }
 
