@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.core.view.get
+import androidx.viewpager2.widget.ViewPager2
 import com.example.andibagproject.R
 import com.example.andibagproject.feature.chat.ChatFragment
 import com.example.andibagproject.feature.control.ControlFragment
@@ -14,6 +16,7 @@ import com.example.andibagproject.feature.commentgallery.CommentGalleryActivity
 import com.example.andibagproject.feature.friend.load.ui.FriendFragment
 import com.example.andibagproject.feature.gallery.main.ui.GalleryFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import org.koin.android.ext.android.bind
 
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -24,6 +27,20 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), 
 
         /*supportFragmentManager.beginTransaction().replace(R.id.main_frame, FriendFragment()).commit()
         mBinding.menuFriend.setImageResource(R.drawable.main_image_friend_black)*/
+
+        binding.pager.adapter = ViewPagerAdapter(this)
+
+        binding.pager.registerOnPageChangeCallback(
+            object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    binding.mainBottomNavigation.menu.getItem(position).isChecked = true
+                }
+            }
+        )
+
+        binding.mainBottomNavigation.setOnNavigationItemSelectedListener(this)
+
 
         bottomNavigationView = binding.mainBottomNavigation
         bottomNavigationView!!.setOnNavigationItemSelectedListener(this)
@@ -36,31 +53,19 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main), 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.menu_friend ->{
-                val friendFragment = FriendFragment()
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.main_frame, friendFragment)
-                    .commit()
+                binding.pager.currentItem = 0
                 return true
             }
             R.id.menu_chat ->{
-                val chatFragment = ChatFragment()
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.main_frame, chatFragment)
-                    .commit()
+                binding.pager.currentItem = 1
                 return true
             }
             R.id.menu_gallery ->{
-                val galleryFragment = GalleryFragment()
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.main_frame, galleryFragment)
-                    .commit()
+                binding.pager.currentItem = 2
                 return true
             }
             R.id.menu_control ->{
-                val controlFragment = ControlFragment()
-                supportFragmentManager.beginTransaction()
-                    .replace(R.id.main_frame, controlFragment)
-                    .commit()
+                binding.pager.currentItem = 3
                 return true
             }
         }
