@@ -4,19 +4,28 @@ import com.example.andibagproject.feature.friend.search.model.SearchFriendRespon
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponseList
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
+import retrofit2.http.*
 
 interface SearchFriendAPI {
-    @GET("search")
+    @GET("friend/search")
     fun searchFriend(
         @Header("Authorization") header: String,
         @Body nickname: String
     ):Single<Response<SearchFriendResponse>>
 
-    @GET("memo")
+    @GET("friend/memo")
     fun loadSearchFriendList(
         @Header("Authorization") header: String
     ):Single<Response<SearchFriendResponseList>>
+
+    @DELETE("friend/memo/{id}")
+    fun deleteSearchFriendList(
+        @Header("Authorization") header: String,
+        @Path("id") id: Long
+    ):Single<Response<Unit>>
+
+    @DELETE("friend/memo")
+    fun deleteAllSearchFriendList(
+        @Header("Authorization") header: String
+    ):Single<Response<Unit>>
 }

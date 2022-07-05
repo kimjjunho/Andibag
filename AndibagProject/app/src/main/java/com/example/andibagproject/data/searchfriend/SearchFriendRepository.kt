@@ -20,4 +20,14 @@ class SearchFriendRepository {
         searchFriendAPI.loadSearchFriendList(ACCESS_TOKEN)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
+    fun deleteFriendList(id: Long) : @NonNull Single<Response<Unit>> =
+        searchFriendAPI.deleteSearchFriendList(ACCESS_TOKEN,id)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+
+    fun deleteAllFriendList() : @NonNull Single<Response<Unit>> =
+        searchFriendAPI.deleteAllSearchFriendList(ACCESS_TOKEN)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
 }

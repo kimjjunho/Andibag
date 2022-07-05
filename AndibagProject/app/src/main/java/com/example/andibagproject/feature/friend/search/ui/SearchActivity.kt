@@ -124,12 +124,12 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
                     id = it
                 }
 
-                var name: String = ""
-                searchPhoneNumber.observe(this@SearchActivity) {
+                var name = ""
+                searchNickname.observe(this@SearchActivity) {
                     name  = it
                 }
 
-                var phoneNumber: String = ""
+                var phoneNumber = ""
                 searchPhoneNumber.observe(this@SearchActivity) {
                     phoneNumber = it
                 }
@@ -137,9 +137,6 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
                 searchFriendAdapter.addItem(id,name,phoneNumber)
                 checkRecyclerViewAdapterEmpty()
 
-                id = -1
-                name = ""
-                phoneNumber = ""
             }
         }
     }
