@@ -11,8 +11,14 @@ class AddFriendViewModel(
     private val rp : AddFriendRepository
 ): ViewModel() {
 
-    val success = MutableLiveData<Boolean>()
-    val fail = MutableLiveData<Int>()
+    val addSuccess = MutableLiveData<Boolean>()
+    val addFail = MutableLiveData<Int>()
+
+    //val loadSuccess = MutableLiveData<Boolean>()
+    //val loadFail = MutableLiveData<Int>()
+    val loadId = MutableLiveData<Long>()
+    val loadNickname = MutableLiveData<String>()
+    val loadPhoneNumber = MutableLiveData<String>()
 
     fun addFriend(addFriendRequest: AddFriendRequest){
         Log.d(TAG, "addFriend: ")
@@ -22,10 +28,27 @@ class AddFriendViewModel(
             }
             .subscribe{ response ->
                 if(response.isSuccessful){
-                    success.value = true
+                    addSuccess.value = true
                 }else{
                     Log.d(TAG, "addFriend: ${response.code()}")
-                    fail.value = response.code()
+                    addFail.value = response.code()
+                }
+            }
+    }
+
+    fun loadFriend(addFriendRequest: AddFriendRequest){
+        rp.loadFriend(addFriendRequest)
+            .doOnError {
+                Log.d(TAG, "Error: $it")
+            }
+            .subscribe{ response ->
+                if(response.isSuccessful){
+                    loadId.value = response.body()!!.id
+                    loadNickname.value = response.body()!!.nickname
+                    loadPhoneNumber.value = response.body()!!.phoneNumber
+                }else{
+                    Log.d(TAG, "loadFriend: "+response.code())
+                    addFail.value = response.code()
                 }
             }
     }

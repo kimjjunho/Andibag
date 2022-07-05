@@ -1,6 +1,7 @@
 package com.example.andibagproject.data.addfriend
 
 import com.example.andibagproject.feature.friend.add.model.AddFriendRequest
+import com.example.andibagproject.feature.friend.add.model.LoadToAddFriendResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
 import retrofit2.http.Body
@@ -19,6 +20,6 @@ interface AddFriendAPI {
     fun loadFriend(
         @Header("Authorization") header: String,
         @Body addFriendRequest: AddFriendRequest
-    ):Single<Response<Unit>>
+    ):Single<Response<LoadToAddFriendResponse>>
 
 }
