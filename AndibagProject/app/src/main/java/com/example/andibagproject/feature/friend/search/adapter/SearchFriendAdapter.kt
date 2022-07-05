@@ -47,6 +47,7 @@ class  SearchFriendAdapter(private val recyclerView: RecyclerView, private val b
         list.add(0,SearchFriendResponse(id,name,phoneNumber))
         submitList(list)
     }
+
 }
 
 class MyDiffCallback : DiffUtil.ItemCallback<SearchFriendResponse>(){

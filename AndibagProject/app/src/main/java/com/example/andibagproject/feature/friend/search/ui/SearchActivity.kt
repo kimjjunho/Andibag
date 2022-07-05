@@ -4,9 +4,7 @@ import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
-import android.view.View
 import android.widget.Button
-import androidx.core.view.size
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.andibagproject.R
@@ -16,10 +14,13 @@ import com.example.andibagproject.feature.friend.add.ui.AddFriendActivity
 import com.example.andibagproject.feature.friend.search.adapter.RecyclerViewEmptySupport
 import com.example.andibagproject.feature.friend.search.adapter.SearchFriendAdapter
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
-import kotlinx.coroutines.delay
+import com.example.andibagproject.feature.friend.search.viewmodel.SearchFriendViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.FieldPosition
 
 class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_search) {
+
+    private val vm: SearchFriendViewModel by viewModel()
 
     private val searchFriendAdapter : SearchFriendAdapter by lazy {
         SearchFriendAdapter(binding.rv,this)
@@ -34,6 +35,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         binding.run {
             imageBack.setOnClickListener {
@@ -50,9 +52,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
             }
 
             imageSearch.setOnClickListener {
-
-                searchFriendAdapter.addItem(editText.text.toString())
-                checkRecyclerViewAdapterEmpty()
+                vm.searchFriend(editText.text.toString())
             }
 
             rv.apply {
@@ -94,6 +94,38 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
     }
 
     override fun observeEvent() {
+        vm.run {
+            searchFail.observe(this@SearchActivity) {
+                when(it){
+                    403 -> showToastShort("다시 로그인 해주새요")
+                    401 -> showToastShort("다른 계정으로 로그인하거나 재로그인 해주세요")
+                    404 -> showToastShort("존재하지 않는 번호입니다")
+                }
+            }
 
+            var id : Long = -1
+            searchId.observe(this@SearchActivity){
+                id = it
+            }
+
+            var name: String = ""
+            searchPhoneNumber.observe(this@SearchActivity) {
+                name  = it
+            }
+
+            var phoneNumber: String = ""
+            searchPhoneNumber.observe(this@SearchActivity) {
+                phoneNumber = it
+            }
+
+            searchSuccess.observe(this@SearchActivity) {
+                searchFriendAdapter.addItem(id,name,phoneNumber)
+                checkRecyclerViewAdapterEmpty()
+
+                id = -1
+                name = ""
+                phoneNumber = ""
+            }
+        }
     }
 }
