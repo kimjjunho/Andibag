@@ -1,5 +1,7 @@
 package com.example.andibagproject.feature.friend.search.model
 
 data class SearchFriendResponse(
-    val name: String
-)
+    val id: Long,
+    val nickname: String,
+    val phoneNumber: String
+    )

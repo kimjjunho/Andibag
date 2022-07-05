@@ -26,10 +26,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
     }
 
     private val searchFriendList = arrayListOf<SearchFriendResponse>().apply {
-        add(SearchFriendResponse("user1"))
-        add(SearchFriendResponse("user2"))
-        add(SearchFriendResponse("user3"))
-        add(SearchFriendResponse("user4"))
+        add(SearchFriendResponse(0,"user1","01012345678"))
+        add(SearchFriendResponse(0,"user1","01012345678"))
+        add(SearchFriendResponse(0,"user1","01012345678"))
+        add(SearchFriendResponse(0,"user1","01012345678"))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +50,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
             }
 
             imageSearch.setOnClickListener {
+
                 searchFriendAdapter.addItem(editText.text.toString())
                 checkRecyclerViewAdapterEmpty()
             }
@@ -92,5 +93,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
             searchFriendAdapter.registerAdapterDataObserver(emptyObserver) },200)
     }
 
-    override fun observeEvent() {}
+    override fun observeEvent() {
+
+    }
 }

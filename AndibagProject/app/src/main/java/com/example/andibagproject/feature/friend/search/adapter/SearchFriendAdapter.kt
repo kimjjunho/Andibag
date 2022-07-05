@@ -42,9 +42,9 @@ class  SearchFriendAdapter(private val recyclerView: RecyclerView, private val b
         submitList(list)
     }
 
-    fun addItem(name: String){
+    fun addItem(id: Long, name: String, phoneNumber: String){
         val list = currentList.toMutableList()
-        list.add(0,SearchFriendResponse(name))
+        list.add(0,SearchFriendResponse(id,name,phoneNumber))
         submitList(list)
     }
 }
@@ -62,7 +62,7 @@ class MyDiffCallback : DiffUtil.ItemCallback<SearchFriendResponse>(){
 class SearchFriendViewHolder(private val binding: ItemFriendSearchBinding, private val recyclerView: RecyclerView) : RecyclerView.ViewHolder(binding.root){
     fun bind(data: SearchFriendResponse){
         binding.run {
-            itemTextName.text = data.name
+            itemTextName.text = data.nickname
 
             itemImgDelete.setOnClickListener {
                 (recyclerView.adapter as SearchFriendAdapter).removeItem(layoutPosition)
