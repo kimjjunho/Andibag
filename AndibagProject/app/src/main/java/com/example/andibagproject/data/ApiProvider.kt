@@ -13,7 +13,7 @@ import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 
 private val retrofit: Retrofit = Retrofit.Builder().apply {
-    baseUrl("http://15.164.67.132:8080")
+    baseUrl("http://13.124.249.253:8080")
     addCallAdapterFactory(RxJava3CallAdapterFactory.create())
     addConverterFactory(GsonConverterFactory.create())
 }.build()
