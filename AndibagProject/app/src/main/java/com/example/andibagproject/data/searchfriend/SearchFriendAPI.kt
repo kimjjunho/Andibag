@@ -1,6 +1,7 @@
 package com.example.andibagproject.data.searchfriend
 
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
+import com.example.andibagproject.feature.friend.search.model.SearchFriendResponseList
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
 import retrofit2.http.Body
@@ -17,5 +18,5 @@ interface SearchFriendAPI {
     @GET("memo")
     fun loadSearchFriendList(
         @Header("Authorization") header: String
-    ):Single<Response<Unit>>
+    ):Single<Response<SearchFriendResponseList>>
 }

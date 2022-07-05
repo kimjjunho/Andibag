@@ -26,7 +26,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
         SearchFriendAdapter(binding.rv,this)
     }
 
-    private val searchFriendList = arrayListOf<SearchFriendResponse>().apply {
+    private var searchFriendList = arrayListOf<SearchFriendResponse>().apply {
         add(SearchFriendResponse(0,"user1","01012345678"))
         add(SearchFriendResponse(0,"user1","01012345678"))
         add(SearchFriendResponse(0,"user1","01012345678"))
@@ -36,8 +36,10 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        vm.loadSearchFriendList()
 
         binding.run {
+
             imageBack.setOnClickListener {
                 finish()
             }
@@ -97,28 +99,41 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
         vm.run {
             searchFail.observe(this@SearchActivity) {
                 when(it){
-                    403 -> showToastShort("다시 로그인 해주새요")
+                    403 -> showToastShort("다시 로그인 해주세요")
                     401 -> showToastShort("다른 계정으로 로그인하거나 재로그인 해주세요")
                     404 -> showToastShort("존재하지 않는 번호입니다")
+                    500 -> showToastShort("서버가 닫혀있습니다")
                 }
             }
 
-            var id : Long = -1
-            searchId.observe(this@SearchActivity){
-                id = it
+            loadFail.observe(this@SearchActivity) {
+                when(it){
+                    403,401 -> showToastShort("다시 로그인 해주세요")
+                    500 -> showToastShort("서버가 닫혀있습니다")
+                }
             }
 
-            var name: String = ""
-            searchPhoneNumber.observe(this@SearchActivity) {
-                name  = it
-            }
-
-            var phoneNumber: String = ""
-            searchPhoneNumber.observe(this@SearchActivity) {
-                phoneNumber = it
+            loadList.observe(this@SearchActivity) {
+                searchFriendList = it.saveList
             }
 
             searchSuccess.observe(this@SearchActivity) {
+
+                var id : Long = -1
+                searchId.observe(this@SearchActivity){
+                    id = it
+                }
+
+                var name: String = ""
+                searchPhoneNumber.observe(this@SearchActivity) {
+                    name  = it
+                }
+
+                var phoneNumber: String = ""
+                searchPhoneNumber.observe(this@SearchActivity) {
+                    phoneNumber = it
+                }
+
                 searchFriendAdapter.addItem(id,name,phoneNumber)
                 checkRecyclerViewAdapterEmpty()
 
