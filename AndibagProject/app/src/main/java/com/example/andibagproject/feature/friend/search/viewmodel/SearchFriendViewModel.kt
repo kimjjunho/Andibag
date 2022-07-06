@@ -18,11 +18,11 @@ class SearchFriendViewModel(
     val loadFail = MutableLiveData<Int>()
     val loadList = MutableLiveData<SearchFriendResponseList>()
 
-    val deleteSuccess = MutableLiveData<Boolean>()
-    val deleteFail = MutableLiveData<Boolean>()
+    val deleteSuccess = MutableLiveData<Int>()
+    val deleteFail = MutableLiveData<Int>()
 
-    val deleteAllSuccess = MutableLiveData<Boolean>()
-    val deleteAllFail = MutableLiveData<Boolean>()
+    val deleteAllSuccess = MutableLiveData<Int>()
+    val deleteAllFail = MutableLiveData<Int>()
 
     fun searchFriend(nickname: String) {
         rp.searchFriend(nickname)
@@ -55,9 +55,9 @@ class SearchFriendViewModel(
         rp.deleteFriendList(id)
             .subscribe{ response ->
                 if(response.isSuccessful){
-                    deleteSuccess.value = true
+                    deleteSuccess.value = response.code()
                 }else{
-                    deleteFail.value = true
+                    deleteFail.value = response.code()
                 }
             }
     }
@@ -66,9 +66,9 @@ class SearchFriendViewModel(
         rp.deleteAllFriendList()
             .subscribe{ response->
                 if(response.isSuccessful){
-                    deleteAllSuccess.value = true
+                    deleteAllSuccess.value = response.code()
                 }else{
-                    deleteAllFail.value = true
+                    deleteAllFail.value = response.code()
                 }
             }
     }

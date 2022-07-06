@@ -7,6 +7,7 @@ import android.os.Handler
 import android.widget.Button
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivitySearchBinding
 import com.example.andibagproject.feature.base.BaseActivity
@@ -23,7 +24,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
     private val vm: SearchFriendViewModel by viewModel()
 
     private val searchFriendAdapter : SearchFriendAdapter by lazy {
-        SearchFriendAdapter(binding.rv,this)
+        SearchFriendAdapter(binding.rv,this,vm)
     }
 
     private var searchFriendList = arrayListOf<SearchFriendResponse>().apply {
@@ -83,9 +84,11 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
 
         dialogBtnCheck.setOnClickListener {
             dialog.dismiss()
-            searchFriendAdapter.removeAll()
 
+            searchFriendAdapter.removeAll()
             checkRecyclerViewAdapterEmpty()
+
+            //vm.deleteAllFriendList()
         }
     }
 
@@ -104,17 +107,6 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
                     404 -> showToastShort("존재하지 않는 번호입니다")
                     500 -> showToastShort("서버가 닫혀있습니다")
                 }
-            }
-
-            loadFail.observe(this@SearchActivity) {
-                when(it){
-                    403,401 -> showToastShort("다시 로그인 해주세요")
-                    500 -> showToastShort("서버가 닫혀있습니다")
-                }
-            }
-
-            loadList.observe(this@SearchActivity) {
-                searchFriendList = it.saveList
             }
 
             searchSuccess.observe(this@SearchActivity) {
@@ -137,6 +129,53 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
                 searchFriendAdapter.addItem(id,name,phoneNumber)
                 checkRecyclerViewAdapterEmpty()
 
+            }
+
+            loadFail.observe(this@SearchActivity) {
+                when(it){
+                    403,401 -> showToastShort("다시 로그인 해주세요")
+                    500 -> showToastShort("서버가 닫혀있습니다")
+                }
+            }
+
+            loadList.observe(this@SearchActivity) {
+                searchFriendList = it.saveList
+            }
+
+            deleteAllSuccess.observe(this@SearchActivity) {
+                when(it){
+                    204 -> showToastShort("검색 기록 삭제에 실패했습니다")
+                    else -> {
+                        searchFriendAdapter.removeAll()
+                        checkRecyclerViewAdapterEmpty()
+                    }
+                }
+            }
+
+            deleteAllFail.observe(this@SearchActivity) {
+                when(it){
+                    403, 401 -> showToastShort("다시 로그인 해주세요")
+                    404 -> showToastShort("검색기록을 찾을 수 없습니다")
+                    500 -> showToastShort("서버가 닫혀있습니다")
+                }
+            }
+        }
+    }
+    fun itemObserveEvent(recyclerView: RecyclerView, layoutPosition: Int){
+        vm.run {
+            deleteSuccess.observe(this@SearchActivity) {
+                when(it){
+                    204 -> showToastShort("검색 기록 삭제에 실패했습니다")
+                    else -> (recyclerView.adapter as SearchFriendAdapter).removeItem(layoutPosition)
+                }
+            }
+
+            deleteFail.observe(this@SearchActivity) {
+                when(it){
+                    401,403 -> showToastShort("다시 로그인 해주세요")
+                    404 -> showToastShort("검색기록을 찾을 수 없습니다")
+                    500 -> showToastShort("서버가 닫혀있습니다")
+                }
             }
         }
     }

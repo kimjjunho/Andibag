@@ -8,18 +8,22 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.andibagproject.databinding.ActivitySearchBinding
 import com.example.andibagproject.databinding.ItemFriendSearchBinding
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
 import com.example.andibagproject.feature.friend.search.ui.SearchActivity
+import com.example.andibagproject.feature.friend.search.viewmodel.SearchFriendViewModel
 
-class  SearchFriendAdapter(private val recyclerView: RecyclerView, private val binding: SearchActivity) : ListAdapter<SearchFriendResponse, RecyclerView.ViewHolder>(MyDiffCallback()){
+class  SearchFriendAdapter(private val recyclerView: RecyclerView, private val binding: SearchActivity, private val viewModel: SearchFriendViewModel) : ListAdapter<SearchFriendResponse, RecyclerView.ViewHolder>(MyDiffCallback()){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         SearchFriendViewHolder(
             ItemFriendSearchBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            ), recyclerView
+            ), recyclerView,
+            binding,
+            viewModel
         )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -60,12 +64,16 @@ class MyDiffCallback : DiffUtil.ItemCallback<SearchFriendResponse>(){
     }
 }
 
-class SearchFriendViewHolder(private val binding: ItemFriendSearchBinding, private val recyclerView: RecyclerView) : RecyclerView.ViewHolder(binding.root){
+class SearchFriendViewHolder(private val binding: ItemFriendSearchBinding, private val recyclerView: RecyclerView, private val activity: SearchActivity, private val viewModel: SearchFriendViewModel) : RecyclerView.ViewHolder(binding.root){
     fun bind(data: SearchFriendResponse){
         binding.run {
+            itemTextId.text = data.id.toString()
             itemTextName.text = data.nickname
+            itemTextPhoneNumber.text = data.phoneNumber
 
             itemImgDelete.setOnClickListener {
+                //activity.itemObserveEvent(recyclerView, layoutPosition)
+                //viewModel.deleteFriendList(itemTextId.text.toString().toLong())
                 (recyclerView.adapter as SearchFriendAdapter).removeItem(layoutPosition)
             }
         }
@@ -76,4 +84,5 @@ class SearchFriendViewHolder(private val binding: ItemFriendSearchBinding, priva
             itemTextName.alpha = alpha
         }
     }
+
 }
