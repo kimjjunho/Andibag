@@ -27,12 +27,12 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
         SearchFriendAdapter(binding.rv,this,vm)
     }
 
-    private var searchFriendList = arrayListOf<SearchFriendResponse>().apply {
+    private var searchFriendList = arrayListOf<SearchFriendResponse>()/*.apply {
         add(SearchFriendResponse(0,"user1","01012345678"))
         add(SearchFriendResponse(0,"user1","01012345678"))
         add(SearchFriendResponse(0,"user1","01012345678"))
         add(SearchFriendResponse(0,"user1","01012345678"))
-    }
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

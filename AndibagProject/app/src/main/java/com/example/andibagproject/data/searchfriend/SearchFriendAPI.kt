@@ -13,18 +13,18 @@ interface SearchFriendAPI {
         @Body nickname: String
     ):Single<Response<SearchFriendResponse>>
 
-    @GET("friend/memo")
+    @GET("memo")
     fun loadSearchFriendList(
         @Header("Authorization") header: String
     ):Single<Response<SearchFriendResponseList>>
 
-    @DELETE("friend/memo/{id}")
+    @DELETE("memo/{id}")
     fun deleteSearchFriendList(
         @Header("Authorization") header: String,
         @Path("id") id: Long
     ):Single<Response<Unit>>
 
-    @DELETE("friend/memo")
+    @DELETE("memo")
     fun deleteAllSearchFriendList(
         @Header("Authorization") header: String
     ):Single<Response<Unit>>
