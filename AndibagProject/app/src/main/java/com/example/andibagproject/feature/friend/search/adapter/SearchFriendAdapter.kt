@@ -66,10 +66,12 @@ class MyDiffCallback : DiffUtil.ItemCallback<SearchFriendResponse>(){
 
 class SearchFriendViewHolder(private val binding: ItemFriendSearchBinding, private val recyclerView: RecyclerView, private val activity: SearchActivity, private val viewModel: SearchFriendViewModel) : RecyclerView.ViewHolder(binding.root){
     fun bind(data: SearchFriendResponse){
+        binding.data = data
+
         binding.run {
-            itemTextId.text = data.id.toString()
-            itemTextName.text = data.nickname
-            itemTextPhoneNumber.text = data.phoneNumber
+//            itemTextId.text = data.id.toString()
+//            itemTextName.text = data.nickname
+//            itemTextPhoneNumber.text = data.phoneNumber
 
             itemImgDelete.setOnClickListener {
                 //activity.itemObserveEvent(recyclerView, layoutPosition)

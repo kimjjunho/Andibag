@@ -2,6 +2,7 @@ package com.example.andibagproject.feature.friend.add.viewmodel
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.andibagproject.data.addfriend.AddFriendRepository
@@ -11,7 +12,8 @@ class AddFriendViewModel(
     private val rp : AddFriendRepository
 ): ViewModel() {
 
-    val addSuccess = MutableLiveData<Boolean>()
+    private val _addSuccess = MutableLiveData<Boolean>()
+    val addSuccess: LiveData<Boolean> = _addSuccess
     val addFail = MutableLiveData<Int>()
 
     //val loadSuccess = MutableLiveData<Boolean>()
@@ -28,7 +30,7 @@ class AddFriendViewModel(
             }
             .subscribe{ response ->
                 if(response.isSuccessful){
-                    addSuccess.value = true
+                    _addSuccess.value = true
                 }else{
                     Log.d(TAG, "addFriend: ${response.code()}")
                     addFail.value = response.code()
