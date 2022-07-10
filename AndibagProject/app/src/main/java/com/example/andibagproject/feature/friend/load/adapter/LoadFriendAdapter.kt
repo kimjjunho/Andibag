@@ -60,6 +60,7 @@ class MyDiffCallback: DiffUtil.ItemCallback<LoadFriendResponse>(){
 
 class LoadFriendViewHolder(private val binding: ItemChattingBinding, private val recyclerView: RecyclerView):RecyclerView.ViewHolder(binding.root){
     fun bind(data: LoadFriendResponse){
+        binding.userInfo = data
         binding.run {
             itemTextName.text = data.nickname
 

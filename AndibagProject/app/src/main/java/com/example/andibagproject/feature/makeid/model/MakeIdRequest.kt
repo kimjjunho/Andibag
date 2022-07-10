@@ -7,4 +7,5 @@ data class MakeIdRequest(
     @SerializedName("accountId") val accountId : String,
     @SerializedName("password") val password : String,
     @SerializedName("phoneNumber") val phoneNumber : String,
+    @SerializedName("imageUrl") val imageUrl: String?
 )

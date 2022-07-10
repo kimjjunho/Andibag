@@ -40,7 +40,7 @@ class MakeIdActivity : AppCompatActivity() {
             }
             btnCheck.setOnClickListener {
                 if(etId.length()>0 && etPassword.length()>0 && etName.length()>0 && etPasswordCheck.length()>0 && etPassword.text.toString() == etPasswordCheck.text.toString() && etPhone.length() == 11){
-                    vm.makeId(MakeIdRequest(etName.text.toString(),etId.text.toString(),etPassword.text.toString(),etPhone.text.toString()))
+                    vm.makeId(MakeIdRequest(etName.text.toString(),etId.text.toString(),etPassword.text.toString(),etPhone.text.toString(),null))
                 }else{
                     toastShort("모든 항목을 조건에 맞게 작성해 주세요.")
                 }

@@ -18,6 +18,8 @@
         <entry key="app/src/main/res/drawable/error_btn_back.xml" value="0.2675925925925926" />
         <entry key="app/src/main/res/drawable/error_btn_login.xml" value="0.2675925925925926" />
         <entry key="app/src/main/res/drawable/item_chatting_delete.xml" value="0.174" />
+        <entry key="app/src/main/res/drawable/item_comment.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/item_comment_text_background.xml" value="0.2315" />
         <entry key="app/src/main/res/drawable/item_gallery_image_background.xml" value="0.33489583333333334" />
         <entry key="app/src/main/res/drawable/login_btn.xml" value="0.33489583333333334" />
         <entry key="app/src/main/res/drawable/login_btn_off.xml" value="0.3494791666666667" />
@@ -29,7 +31,7 @@
         <entry key="app/src/main/res/layout/activity_add.xml" value="0.2591493570722057" />
         <entry key="app/src/main/res/layout/activity_add_friend.xml" value="0.21440429687500007" />
         <entry key="app/src/main/res/layout/activity_chatting.xml" value="0.20332641601562512" />
-        <entry key="app/src/main/res/layout/activity_comment_gallery.xml" value="0.18674316406250002" />
+        <entry key="app/src/main/res/layout/activity_comment_gallery.xml" value="0.542832909245123" />
         <entry key="app/src/main/res/layout/activity_error.xml" value="0.24620369626927813" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.318393975909141" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33037568892159636" />
@@ -47,8 +49,10 @@
         <entry key="app/src/main/res/layout/item_chat_other.xml" value="0.1" />
         <entry key="app/src/main/res/layout/item_chating.xml" value="0.331265173692304" />
         <entry key="app/src/main/res/layout/item_chatting.xml" value="0.22760306431730398" />
+        <entry key="app/src/main/res/layout/item_comment.xml" value="0.5634233623531695" />
         <entry key="app/src/main/res/layout/item_friend_search.xml" value="0.5066085815429688" />
         <entry key="app/src/main/res/layout/item_gallery.xml" value="0.24761010177341886" />
+        <entry key="app/src/main/res/layout/itiem_comment.xml" value="0.3280351787594194" />
         <entry key="app/src/main/res/menu/main_menu_bottom.xml" value="0.3182291666666667" />
       </map>
     </option>
