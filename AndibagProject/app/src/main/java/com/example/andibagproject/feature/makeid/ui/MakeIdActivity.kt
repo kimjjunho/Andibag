@@ -19,6 +19,7 @@ import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityMakeIdBinding
 import com.example.andibagproject.feature.image.LoadImageAddressRequest
 import com.example.andibagproject.feature.image.LoadImageAddressViewModel
+import com.example.andibagproject.feature.makeid.model.CheckIdRequest
 import com.example.andibagproject.feature.makeid.model.MakeIdRequest
 import com.example.andibagproject.feature.makeid.viewmodel.MakeIdViewModel
 import com.example.andibagproject.util.uriToMultipart
@@ -76,8 +77,8 @@ class MakeIdActivity : AppCompatActivity() {
                     toastShort("모든 항목을 조건에 맞게 작성해 주세요.")
                 }
             }
-            mBinding.btnIdCheck.setOnClickListener {
-                vm.checkId(etId.text.toString())
+            btnIdCheck.setOnClickListener {
+                vm.checkId(CheckIdRequest(etId.text.toString()))
             }
 
             imageButton.setOnClickListener {
@@ -154,6 +155,7 @@ class MakeIdActivity : AppCompatActivity() {
                     when (it) {
                         202 -> toastShort("사용 가능한 아이디입니다")
                         409 -> toastShort("해당 아이디가 이미 존재합니다")
+                        else -> Log.d(TAG, "observeEvent: $it")
                     }
                 }
             }

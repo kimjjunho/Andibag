@@ -9,6 +9,7 @@ import com.example.andibagproject.ACCESS_TOKEN
 import com.example.andibagproject.Authority
 import com.example.andibagproject.REFRESH_TOKEN
 import com.example.andibagproject.data.makeid.MakeIdRepository
+import com.example.andibagproject.feature.makeid.model.CheckIdRequest
 import com.example.andibagproject.feature.makeid.model.MakeIdRequest
 import okhttp3.MultipartBody
 import java.sql.Struct
@@ -36,8 +37,8 @@ class MakeIdViewModel(
             }
     }
 
-    fun checkId(accountid: String){
-        rp.checkId(accountid)
+    fun checkId(checkIdRequest: CheckIdRequest){
+        rp.checkId(checkIdRequest)
             .doOnError { throwable->
                 Log.d(TAG, "checkId: $throwable")
             }

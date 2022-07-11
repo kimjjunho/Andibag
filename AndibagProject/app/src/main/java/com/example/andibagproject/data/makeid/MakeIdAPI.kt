@@ -1,5 +1,6 @@
 package com.example.andibagproject.data.makeid
 
+import com.example.andibagproject.feature.makeid.model.CheckIdRequest
 import com.example.andibagproject.feature.makeid.model.MakeIdRequest
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
@@ -14,6 +15,6 @@ interface MakeIdAPI {
 
     @POST("user/signup/check")
     fun checkId(
-        @Body accountId: String
+        @Body checkIdRequest: CheckIdRequest
     ): Single<Response<Unit>>
 }

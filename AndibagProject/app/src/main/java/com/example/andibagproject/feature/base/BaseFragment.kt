@@ -28,6 +28,7 @@ abstract class BaseFragment <B: ViewDataBinding>(
         initView()
         observeEvent()
         return binding.root
+
     }
 
     abstract fun initView()

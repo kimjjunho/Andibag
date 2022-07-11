@@ -72,19 +72,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/image" />
 
-    <Button
-        android:id="@+id/btn_id_check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="-10dp"
-        android:background="#00ff0000"
-        android:text="중복 확인"
-        android:textColor="@color/blue"
-        android:textSize="11dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/et_id"
-        app:layout_constraintEnd_toEndOf="@+id/et_id"
-        app:layout_constraintTop_toTopOf="@+id/et_id" />
 
     <EditText
         android:id="@+id/et_id"
@@ -103,6 +90,20 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+    <Button
+        android:id="@+id/btn_id_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-10dp"
+        android:background="#00ff0000"
+        android:text="중복 확인"
+        android:textColor="@color/blue"
+        android:textSize="11dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/et_id"
+        app:layout_constraintEnd_toEndOf="@+id/et_id"
+        app:layout_constraintTop_toTopOf="@+id/et_id" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/et_password"
