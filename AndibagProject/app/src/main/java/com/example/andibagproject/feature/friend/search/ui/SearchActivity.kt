@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,6 @@ import com.example.andibagproject.feature.friend.search.adapter.SearchFriendAdap
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
 import com.example.andibagproject.feature.friend.search.viewmodel.SearchFriendViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.text.FieldPosition
 
 class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_search) {
 
@@ -71,13 +71,15 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
 
     private fun settingDialog(){
         val dialog = Dialog(this@SearchActivity)
-        dialog.setContentView(R.layout.dialog_search_friend_all_delete)
+        dialog.setContentView(R.layout.dialog_delete)
         dialog.setCancelable(false)
         dialog.show()
 
         val dialogBtnCancel : Button = dialog.findViewById(R.id.dialog_btn_cacel)
         val dialogBtnCheck : Button = dialog.findViewById(R.id.dialog_btn_check)
+        val dialogTvQuestion : TextView = dialog.findViewById(R.id.tv_question)
 
+        dialogTvQuestion.text = "검색 기록을 모두 삭제하시겠습니까?"
         dialogBtnCancel.setOnClickListener {
             dialog.dismiss()
         }

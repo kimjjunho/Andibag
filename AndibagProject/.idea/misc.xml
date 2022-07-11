@@ -43,7 +43,7 @@
         <entry key="app/src/main/res/layout/dialog_search_friend_all_delete.xml" value="0.2440347643866056" />
         <entry key="app/src/main/res/layout/fragment_chat.xml" value="0.31521739130434784" />
         <entry key="app/src/main/res/layout/fragment_control.xml" value="0.31521739130434784" />
-        <entry key="app/src/main/res/layout/fragment_friend.xml" value="0.31521739130434784" />
+        <entry key="app/src/main/res/layout/fragment_friend.xml" value="0.25882352941176473" />
         <entry key="app/src/main/res/layout/fragment_gallery.xml" value="0.31521739130434784" />
         <entry key="app/src/main/res/layout/item_chat_mine.xml" value="0.3394853678880129" />
         <entry key="app/src/main/res/layout/item_chat_other.xml" value="0.1" />

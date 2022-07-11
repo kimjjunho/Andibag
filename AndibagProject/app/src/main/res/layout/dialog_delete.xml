@@ -8,13 +8,13 @@
     android:background="@drawable/dialog_search_friend_all_delete_background">
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/tv_question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:fontFamily="@font/inter_semibold"
         android:includeFontPadding="false"
-        android:text="검색기록을 모두 삭제하시겠습니까?"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="11dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
         android:textSize="11dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/dialog_btn_cacel"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/tv_question"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
