@@ -1,19 +1,31 @@
 package com.example.andibagproject.feature.makeid.ui
 
+import android.app.Activity
+import android.app.AlertDialog
 import android.content.ContentValues
+import android.content.Intent
+import android.graphics.ImageDecoder
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.text.Editable
 import android.text.InputType
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityMakeIdBinding
 import com.example.andibagproject.feature.makeid.model.MakeIdRequest
 import com.example.andibagproject.feature.makeid.viewmodel.MakeIdViewModel
+import com.example.andibagproject.util.openGallery
+import com.example.andibagproject.util.uriToMultipart
+import org.koin.android.ext.android.bind
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MakeIdActivity : AppCompatActivity() {
@@ -23,6 +35,7 @@ class MakeIdActivity : AppCompatActivity() {
     private val binding get() = mBinding
     val vm : MakeIdViewModel by viewModel()
 
+    lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +61,55 @@ class MakeIdActivity : AppCompatActivity() {
             mBinding.btnIdCheck.setOnClickListener {
                 vm.checkId(etId.text.toString())
             }
+
+            imageButton.setOnClickListener {
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+                intent.type = "image/*"
+                filterActivityLauncher.launch(intent)
+            }
+        }
+    }
+
+    private val filterActivityLauncher: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if(it.resultCode == RESULT_OK && it.data !=null) {
+                var currentImageUri = it.data?.data
+                try {
+                    currentImageUri?.let {
+                        if(Build.VERSION.SDK_INT < 28) {
+                            val bitmap = MediaStore.Images.Media.getBitmap(
+                                this.contentResolver,
+                                currentImageUri
+                            )
+                            binding.imageButton.setImageBitmap(bitmap)
+                        } else {
+                            val source = ImageDecoder.createSource(this.contentResolver, currentImageUri)
+                            val bitmap = ImageDecoder.decodeBitmap(source)
+                            binding.imageButton.setImageBitmap(bitmap)
+                        }
+                    }
+
+
+                }catch(e:Exception) {
+                    e.printStackTrace()
+                }
+            } else if(it.resultCode == RESULT_CANCELED){
+                Toast.makeText(this, "사진 선택 취소", Toast.LENGTH_LONG).show();
+            }else{
+                Log.d("ActivityResult","something wrong")
+            }
         }
 
-
+    private fun showPermissionContextPopup() {
+        AlertDialog.Builder(this)
+            .setTitle("권한이 필요합니다.")
+            .setMessage("프로필 이미지를 바꾸기 위해서는 갤러리 접근 권한이 필요합니다.")
+            .setPositiveButton("동의하기") { _, _ ->
+                requestPermissions(arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1000)
+            }
+            .setNegativeButton("취소하기") { _, _ -> }
+            .create()
+            .show()
     }
 
     private fun observeEvent(){
