@@ -2,7 +2,6 @@ package com.example.andibagproject.feature.friend.load.ui
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.util.Log
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,8 +15,8 @@ import com.example.andibagproject.feature.friend.add.ui.AddFriendActivity
 import com.example.andibagproject.feature.friend.load.adapter.LoadFriendAdapter
 import com.example.andibagproject.feature.friend.load.adapter.LoadFriendSwipeHelper
 import com.example.andibagproject.feature.friend.load.model.LoadFriendResponse
-import com.example.andibagproject.feature.friend.load.model.LoadFriendResponseList
 import com.example.andibagproject.feature.friend.load.viewmodel.FriendViewModel
+import com.example.andibagproject.util.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_friend) {
@@ -35,8 +34,8 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
 
         val context = activity as MainActivity
 
+        vm.loadMyProfile()
         vm.loadFriend()
-        Log.d(TAG, "initView: $ACCESS_TOKEN")
 
         binding.run {
 
@@ -79,6 +78,21 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
                 loadFriendList = it.friendList
                 loadFriendAdapter.submitList(loadFriendList)
 
+            }
+
+            myPhoneNumber.observe(this@FriendFragment){
+                binding.tvName.text = it
+            }
+            myImageUrl.observe(this@FriendFragment){
+                loadImage(binding.myImageview,it)
+            }
+            myPhoneNumber.observe(this@FriendFragment){
+                binding.tvPhoneNumber.text = it
+            }
+            myProfileFail.observe(this@FriendFragment){
+                when(it){
+                    403, 401 -> showToast("다시 로그인 해주세요")
+                }
             }
         }
     }

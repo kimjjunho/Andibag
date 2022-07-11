@@ -1,6 +1,7 @@
 package com.example.andibagproject.data.loadfriend
 
 import com.example.andibagproject.feature.friend.load.model.LoadFriendResponseList
+import com.example.andibagproject.feature.friend.load.model.LoadMyProfileResponse
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
 import retrofit2.http.GET
@@ -11,4 +12,9 @@ interface LoadFriendAPI {
     fun loadFriend(
         @Header("Authorization") header: String
     ): Single<Response<LoadFriendResponseList>>
+
+    @GET("user/my")
+    fun loadMyProfile(
+        @Header("Authorization") header: String
+    ): Single<Response<LoadMyProfileResponse>>
 }

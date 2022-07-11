@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.andibagproject.data.loadfriend.LoadFriendRepository
-import com.example.andibagproject.feature.friend.load.model.LoadFriendResponse
 import com.example.andibagproject.feature.friend.load.model.LoadFriendResponseList
 import retrofit2.Response
 
@@ -19,6 +18,11 @@ class FriendViewModel(
     val friendList = MutableLiveData<LoadFriendResponseList>()
     val list = listOf<Response<LoadFriendResponseList>>()
 
+    val myNickname = MutableLiveData<String>()
+    val myImageUrl = MutableLiveData<String>()
+    val myPhoneNumber = MutableLiveData<String>()
+    val myProfileFail = MutableLiveData<Int>()
+
 
     fun loadFriend() {
         rp.loadFriend()
@@ -27,13 +31,26 @@ class FriendViewModel(
 
                     success.value = true
                     friendList.value = reaponse.body()
-
-                    Log.d(TAG, "loadFriend: ViewModelSuccessful")
-
+                    
                 }else{
                     fail.value = reaponse.code()
-                    Log.d(TAG, "loadFriend: ViewModelFail")
 
+                }
+            }
+    }
+
+    fun loadMyProfile() {
+        rp.loadMyProfile()
+            .subscribe{ respone->
+                if(respone.isSuccessful){
+                    Log.d(TAG, "loadMyProfile: success")
+                    myNickname.value = respone.body()!!.nickname
+                    myImageUrl.value = respone.body()!!.imageUrl
+                    myPhoneNumber.value = respone.body()!!.phoneNumber
+
+                }else{
+                    Log.d(TAG, "loadMyProfile: "+respone.code())
+                    myProfileFail.value = respone.code()
                 }
             }
     }
