@@ -4,6 +4,7 @@ import com.example.andibagproject.data.addfriend.AddFriendAPI
 import com.example.andibagproject.data.gallery.main.GalleryAPI
 import com.example.andibagproject.data.gallery.comment.CommentAPI
 import com.example.andibagproject.data.gallery.reply.ReplyAPI
+import com.example.andibagproject.data.image.LoadImageAddressAPI
 import com.example.andibagproject.data.loadfriend.LoadFriendAPI
 import com.example.andibagproject.data.login.LoginAPI
 import com.example.andibagproject.data.makegallery.MakeGalleryAPI
@@ -54,4 +55,8 @@ val replyAPI : ReplyAPI by lazy {
 
 val searchFriendAPI : SearchFriendAPI by lazy {
     retrofit.create(SearchFriendAPI::class.java)
+}
+
+val loadImageAddressAPI : LoadImageAddressAPI by lazy {
+    retrofit.create(LoadImageAddressAPI::class.java)
 }
