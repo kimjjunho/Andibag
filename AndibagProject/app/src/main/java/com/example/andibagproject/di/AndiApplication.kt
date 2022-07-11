@@ -23,7 +23,8 @@ class AndiApplication : Application(){
                     loadFriendModule,
                     commentModule,
                     replyModule,
-                    searchFriendModule
+                    searchFriendModule,
+                    loadImageAddressModule
                 )
             )
         }
