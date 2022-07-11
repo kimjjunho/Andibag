@@ -10,6 +10,7 @@ import com.example.andibagproject.Authority
 import com.example.andibagproject.REFRESH_TOKEN
 import com.example.andibagproject.data.makeid.MakeIdRepository
 import com.example.andibagproject.feature.makeid.model.MakeIdRequest
+import okhttp3.MultipartBody
 import java.sql.Struct
 
 class MakeIdViewModel(
