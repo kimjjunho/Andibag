@@ -9,16 +9,18 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.andibagproject.databinding.ItemChattingBinding
 import com.example.andibagproject.feature.friend.load.model.LoadFriendResponse
+import com.example.andibagproject.feature.main.MainActivity
+import com.example.andibagproject.feature.settingDialogDelete
 import java.util.*
 
-class LoadFriendAdapter(private val recyclerView: RecyclerView): ListAdapter<LoadFriendResponse, RecyclerView.ViewHolder>(MyDiffCallback()) {
+class LoadFriendAdapter(private val recyclerView: RecyclerView, private val mainActivity: MainActivity): ListAdapter<LoadFriendResponse, RecyclerView.ViewHolder>(MyDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         LoadFriendViewHolder(
             ItemChattingBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            ),recyclerView
+            ),recyclerView,mainActivity
         )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -58,17 +60,20 @@ class MyDiffCallback: DiffUtil.ItemCallback<LoadFriendResponse>(){
 
 }
 
-class LoadFriendViewHolder(private val binding: ItemChattingBinding, private val recyclerView: RecyclerView):RecyclerView.ViewHolder(binding.root){
+class LoadFriendViewHolder(private val binding: ItemChattingBinding, private val recyclerView: RecyclerView, private val mainActivity: MainActivity):RecyclerView.ViewHolder(binding.root){
     fun bind(data: LoadFriendResponse){
         binding.userInfo = data
         binding.run {
             itemTextName.text = data.nickname
 
             itemBtnDelete.setOnClickListener {
-                (recyclerView.adapter as LoadFriendAdapter).removeItem(layoutPosition)
+                settingDialogDelete(mainActivity, itemTextName.text.toString()+"님을 친구에서 삭제하시겠습니까?") { helpDialog() }
             }
-
         }
+    }
+
+    private fun helpDialog(){
+        (recyclerView.adapter as LoadFriendAdapter).removeItem(layoutPosition)
     }
 
     fun setAlpha(alpha: Float){

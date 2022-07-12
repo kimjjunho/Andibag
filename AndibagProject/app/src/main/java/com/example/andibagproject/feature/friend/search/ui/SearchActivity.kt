@@ -17,6 +17,7 @@ import com.example.andibagproject.feature.friend.search.adapter.RecyclerViewEmpt
 import com.example.andibagproject.feature.friend.search.adapter.SearchFriendAdapter
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
 import com.example.andibagproject.feature.friend.search.viewmodel.SearchFriendViewModel
+import com.example.andibagproject.feature.settingDialogDelete
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_search) {
@@ -51,7 +52,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
             }
 
             btnDelete.setOnClickListener {
-                settingDialog()
+                settingDialogDelete(this@SearchActivity, "검색 기록을 모두 삭제하시겠습니까?") { helpDialog() }
             }
 
             imageSearch.setOnClickListener {
@@ -69,29 +70,9 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
         }
     }
 
-    private fun settingDialog(){
-        val dialog = Dialog(this@SearchActivity)
-        dialog.setContentView(R.layout.dialog_delete)
-        dialog.setCancelable(false)
-        dialog.show()
-
-        val dialogBtnCancel : Button = dialog.findViewById(R.id.dialog_btn_cacel)
-        val dialogBtnCheck : Button = dialog.findViewById(R.id.dialog_btn_check)
-        val dialogTvQuestion : TextView = dialog.findViewById(R.id.tv_question)
-
-        dialogTvQuestion.text = "검색 기록을 모두 삭제하시겠습니까?"
-        dialogBtnCancel.setOnClickListener {
-            dialog.dismiss()
-        }
-
-        dialogBtnCheck.setOnClickListener {
-            dialog.dismiss()
-
-            searchFriendAdapter.removeAll()
-            checkRecyclerViewAdapterEmpty()
-
-            //vm.deleteAllFriendList()
-        }
+    private fun helpDialog(){
+        searchFriendAdapter.removeAll()
+        checkRecyclerViewAdapterEmpty()
     }
 
     fun checkRecyclerViewAdapterEmpty(){

@@ -1,4 +1,5 @@
 package com.example.andibagproject.feature.friend.load.ui
+import android.app.Dialog
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.util.Log
@@ -20,30 +21,34 @@ import com.example.andibagproject.util.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_friend) {
-    val vm : FriendViewModel by viewModel()
+    private val vm : FriendViewModel by viewModel()
 
     private val loadFriendAdapter : LoadFriendAdapter by lazy {
-        LoadFriendAdapter(binding.rv)
+        val context = activity as MainActivity
+
+        LoadFriendAdapter(binding.rv,context)
     }
 
   //  private val loadFriendList = arrayListOf<LoadFriendResponse>()
 
-    private var loadFriendList = listOf<LoadFriendResponse>()
+    private var loadFriendList = listOf<LoadFriendResponse>(
+        LoadFriendResponse(1,"d",null,"df")
+    )
 
     override fun initView() {
 
-        val context = activity as MainActivity
-
         vm.loadMyProfile()
-        vm.loadFriend()
+        //vm.loadFriend()
+
+        loadFriendAdapter.submitList(loadFriendList)
 
         binding.run {
 
             imageSearch.setOnClickListener {
-                startActivity(Intent(context, SearchActivity()::class.java))
+                startActivity(Intent(requireContext(), SearchActivity()::class.java))
             }
             imageAdd.setOnClickListener {
-                startActivity(Intent(context, AddFriendActivity()::class.java))
+                startActivity(Intent(requireContext(), AddFriendActivity()::class.java))
             }
 
             binding.rv.apply {
@@ -57,6 +62,7 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
             }
             ItemTouchHelper(swipeHelper).attachToRecyclerView(binding.rv)
         }
+
     }
 
     override fun observeEvent() {
