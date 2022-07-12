@@ -24,7 +24,8 @@ class AndiApplication : Application(){
                     commentModule,
                     replyModule,
                     searchFriendModule,
-                    loadImageAddressModule
+                    loadImageAddressModule,
+                    myProfileFixModule
                 )
             )
         }
