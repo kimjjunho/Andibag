@@ -36,8 +36,8 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
     override fun initView() {
 
         vm.loadMyProfile()
-        //vm.loadFriend()
-        
+        vm.loadFriend()
+
         binding.run {
 
             imageSearch.setOnClickListener {
@@ -47,7 +47,7 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
                 startActivity(Intent(requireContext(), AddFriendActivity()::class.java))
             }
 
-            binding.rv.apply {
+            rv.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)
                 addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
                 adapter = loadFriendAdapter
@@ -56,7 +56,7 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
             val swipeHelper = LoadFriendSwipeHelper(loadFriendAdapter).apply {
                 setClamp(resources.displayMetrics.widthPixels.toFloat() / 5)
             }
-            ItemTouchHelper(swipeHelper).attachToRecyclerView(binding.rv)
+            ItemTouchHelper(swipeHelper).attachToRecyclerView(rv)
         }
 
     }

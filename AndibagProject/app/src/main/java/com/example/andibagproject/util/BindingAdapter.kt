@@ -10,6 +10,6 @@ fun loadImage(imageView: ImageView, url: String?) {
     imageView.clipToOutline = true //imageView background 적용을 위한 속성
     Glide.with(imageView)
         .load(url)
-        .error(R.drawable.ic_launcher_foreground)
+        .error(R.drawable.item_image_profile)
         .into(imageView)
 }

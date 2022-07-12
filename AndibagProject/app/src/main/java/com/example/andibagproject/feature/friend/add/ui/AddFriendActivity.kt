@@ -9,6 +9,7 @@ import com.example.andibagproject.databinding.ActivityAddFriendBinding
 import com.example.andibagproject.feature.base.BaseActivity
 import com.example.andibagproject.feature.friend.add.model.AddFriendRequest
 import com.example.andibagproject.feature.friend.add.viewmodel.AddFriendViewModel
+import com.example.andibagproject.util.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AddFriendActivity : BaseActivity<ActivityAddFriendBinding>(R.layout.activity_add_friend) {
@@ -59,6 +60,9 @@ class AddFriendActivity : BaseActivity<ActivityAddFriendBinding>(R.layout.activi
             }
             loadPhoneNumber.observe(this@AddFriendActivity){
                 binding.textPhoneNumber.text = it
+            }
+            loadImageUrl.observe(this@AddFriendActivity){
+                loadImage(binding.imageview,it)
             }
         }
     }
