@@ -11,8 +11,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
 class AddFriendRepository {
-    fun addFriend(addFriendRequest: AddFriendRequest) : @NonNull Single<Response<Unit>> =
-        addFriendAPI.addFriend(ACCESS_TOKEN,addFriendRequest)
+    fun addFriend(addFriendRequest: HashMap<String, String>) : @NonNull Single<Response<Unit>> =
+        addFriendAPI.addFriend(ACCESS_TOKEN, addFriendRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 
@@ -20,5 +20,7 @@ class AddFriendRepository {
         addFriendAPI.loadFriend(ACCESS_TOKEN,addFriendRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
+
 
 }

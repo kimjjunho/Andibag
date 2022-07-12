@@ -1,8 +1,11 @@
 package com.example.andibagproject.feature.friend.search.viewmodel
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.andibagproject.data.searchfriend.SearchFriendRepository
+import com.example.andibagproject.feature.friend.search.model.SearchFriendRequest
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponseList
 
 class SearchFriendViewModel(
@@ -24,8 +27,8 @@ class SearchFriendViewModel(
     val deleteAllSuccess = MutableLiveData<Int>()
     val deleteAllFail = MutableLiveData<Int>()
 
-    fun searchFriend(nickname: String) {
-        rp.searchFriend(nickname)
+    fun searchFriend(searchFriendRequest: SearchFriendRequest) {
+        rp.searchFriend(searchFriendRequest)
             .subscribe { response ->
                 if (response.isSuccessful) {
                     searchSuccess.value = true
@@ -42,6 +45,7 @@ class SearchFriendViewModel(
     fun loadSearchFriendList(){
         rp.loadSearchFriendList()
             .subscribe{ response ->
+                Log.d(TAG, "loadSearchFriendList: "+response.code())
                 if(response.isSuccessful){
                     loadList.value = response.body()
                 }else{

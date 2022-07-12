@@ -15,6 +15,7 @@ import com.example.andibagproject.feature.base.BaseActivity
 import com.example.andibagproject.feature.friend.add.ui.AddFriendActivity
 import com.example.andibagproject.feature.friend.search.adapter.RecyclerViewEmptySupport
 import com.example.andibagproject.feature.friend.search.adapter.SearchFriendAdapter
+import com.example.andibagproject.feature.friend.search.model.SearchFriendRequest
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
 import com.example.andibagproject.feature.friend.search.viewmodel.SearchFriendViewModel
 import com.example.andibagproject.feature.settingDialogDelete
@@ -56,7 +57,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding>(R.layout.activity_sea
             }
 
             imageSearch.setOnClickListener {
-                vm.searchFriend(editText.text.toString())
+                vm.searchFriend(SearchFriendRequest( editText.text.toString()))
             }
 
             rv.apply {

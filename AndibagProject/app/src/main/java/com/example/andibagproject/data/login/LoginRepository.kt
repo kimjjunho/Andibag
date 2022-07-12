@@ -1,7 +1,5 @@
 package com.example.andibagproject.data.login
 
-import android.content.ContentValues
-import android.util.Log
 import com.example.andibagproject.data.loginAPI
 import com.example.andibagproject.feature.login.model.LoginRequest
 import com.example.andibagproject.feature.login.model.LoginResponse
@@ -16,4 +14,5 @@ class LoginRepository {
         loginAPI.login(loginRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
 }

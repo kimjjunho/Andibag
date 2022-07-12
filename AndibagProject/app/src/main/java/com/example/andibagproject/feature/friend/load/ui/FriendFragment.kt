@@ -38,6 +38,7 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
         vm.loadMyProfile()
         vm.loadFriend()
 
+        Log.d(TAG, "initView: $ACCESS_TOKEN")
         binding.run {
 
             imageSearch.setOnClickListener {
@@ -104,5 +105,8 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
     override fun onResume() {
         super.onResume()
         observeEvent()
+
+        vm.loadMyProfile()
+        vm.loadFriend()
     }
 }

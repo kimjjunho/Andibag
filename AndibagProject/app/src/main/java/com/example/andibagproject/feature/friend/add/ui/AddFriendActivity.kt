@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.example.andibagproject.ACCESS_TOKEN
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityAddFriendBinding
 import com.example.andibagproject.feature.base.BaseActivity
@@ -27,7 +28,7 @@ class AddFriendActivity : BaseActivity<ActivityAddFriendBinding>(R.layout.activi
                 vm.loadFriend(AddFriendRequest(editText.text.toString()))
             }
             btnAddFriend.setOnClickListener {
-                vm.addFriend(AddFriendRequest(textPhoneNumber.text.toString()))
+                vm.addFriend(textPhoneNumber.text.toString())
             }
         }
     }

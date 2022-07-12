@@ -2,6 +2,7 @@ package com.example.andibagproject.data.searchfriend
 
 import com.example.andibagproject.ACCESS_TOKEN
 import com.example.andibagproject.data.searchFriendAPI
+import com.example.andibagproject.feature.friend.search.model.SearchFriendRequest
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponse
 import com.example.andibagproject.feature.friend.search.model.SearchFriendResponseList
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -11,8 +12,8 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 import retrofit2.Response
 
 class SearchFriendRepository {
-    fun searchFriend(nickname: String) : @NonNull Single<Response<SearchFriendResponse>> =
-        searchFriendAPI.searchFriend(ACCESS_TOKEN,nickname)
+    fun searchFriend(searchFriendRequest: SearchFriendRequest) : @NonNull Single<Response<SearchFriendResponse>> =
+        searchFriendAPI.searchFriend(ACCESS_TOKEN,searchFriendRequest)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
 

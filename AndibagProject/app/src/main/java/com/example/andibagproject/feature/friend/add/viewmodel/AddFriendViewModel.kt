@@ -24,13 +24,16 @@ class AddFriendViewModel(
     val loadPhoneNumber = MutableLiveData<String>()
     val loadImageUrl = MutableLiveData<String>()
 
-    fun addFriend(addFriendRequest: AddFriendRequest){
+    fun addFriend(addFriendRequest: String){
         Log.d(TAG, "addFriend: ")
-        rp.addFriend(addFriendRequest)
+        val body = HashMap<String, String>()
+        body["nickname"] = addFriendRequest
+        rp.addFriend(body)
             .doOnError {
                 Log.d(TAG, "Error: $it")
             }
             .subscribe{ response ->
+
                 if(response.isSuccessful){
                     _addSuccess.value = true
                 }else{
@@ -40,12 +43,13 @@ class AddFriendViewModel(
             }
     }
 
-    fun loadFriend(addFriendRequest: AddFriendRequest){
-        rp.loadFriend(addFriendRequest)
+    fun loadFriend(phoneNumber: AddFriendRequest){
+        rp.loadFriend(phoneNumber)
             .doOnError {
                 Log.d(TAG, "Error: $it")
             }
             .subscribe{ response ->
+                Log.d(TAG, "loadFriend: $phoneNumber")
                 if(response.isSuccessful){
                     loadId.value = response.body()!!.id
                     loadNickname.value = response.body()!!.nickname
