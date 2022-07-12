@@ -31,17 +31,13 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
 
   //  private val loadFriendList = arrayListOf<LoadFriendResponse>()
 
-    private var loadFriendList = listOf<LoadFriendResponse>(
-        LoadFriendResponse(1,"d",null,"df")
-    )
+    private var loadFriendList = listOf<LoadFriendResponse>()
 
     override fun initView() {
 
         vm.loadMyProfile()
         //vm.loadFriend()
-
-        loadFriendAdapter.submitList(loadFriendList)
-
+        
         binding.run {
 
             imageSearch.setOnClickListener {
@@ -83,7 +79,6 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
             friendList.observe(this@FriendFragment) {
                 loadFriendList = it.friendList
                 loadFriendAdapter.submitList(loadFriendList)
-
             }
 
             myPhoneNumber.observe(this@FriendFragment){
