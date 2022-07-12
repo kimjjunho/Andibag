@@ -9,6 +9,7 @@ import com.example.andibagproject.data.loadfriend.LoadFriendAPI
 import com.example.andibagproject.data.login.LoginAPI
 import com.example.andibagproject.data.makegallery.MakeGalleryAPI
 import com.example.andibagproject.data.makeid.MakeIdAPI
+import com.example.andibagproject.data.myprofilefix.MyProfileFixAPI
 import com.example.andibagproject.data.searchfriend.SearchFriendAPI
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
@@ -59,4 +60,8 @@ val searchFriendAPI : SearchFriendAPI by lazy {
 
 val loadImageAddressAPI : LoadImageAddressAPI by lazy {
     retrofit.create(LoadImageAddressAPI::class.java)
+}
+
+val myProfileFixAPI : MyProfileFixAPI by lazy {
+    retrofit.create(MyProfileFixAPI::class.java)
 }

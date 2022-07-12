@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".feature.friend.load.ui.MyProfileFixActivity">
+        tools:context=".feature.myprofilefix.ui.MyProfileFixActivity">
 
         <ImageButton
             android:id="@+id/image_back"
