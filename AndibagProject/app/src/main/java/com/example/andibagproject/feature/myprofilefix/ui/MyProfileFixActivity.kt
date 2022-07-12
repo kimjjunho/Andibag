@@ -1,6 +1,5 @@
-package com.example.andibagproject.feature.friend.load.ui
+package com.example.andibagproject.feature.myprofilefix.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.andibagproject.R
 import com.example.andibagproject.databinding.ActivityMyProfileFixBinding

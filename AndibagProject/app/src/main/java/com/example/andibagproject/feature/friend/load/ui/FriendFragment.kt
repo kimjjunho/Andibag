@@ -1,5 +1,4 @@
 package com.example.andibagproject.feature.friend.load.ui
-import android.app.Dialog
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.util.Log
@@ -17,6 +16,7 @@ import com.example.andibagproject.feature.friend.load.adapter.LoadFriendAdapter
 import com.example.andibagproject.feature.friend.load.adapter.LoadFriendSwipeHelper
 import com.example.andibagproject.feature.friend.load.model.LoadFriendResponse
 import com.example.andibagproject.feature.friend.load.viewmodel.FriendViewModel
+import com.example.andibagproject.feature.myprofilefix.ui.MyProfileFixActivity
 import com.example.andibagproject.util.loadImage
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

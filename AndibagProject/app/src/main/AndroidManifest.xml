@@ -17,7 +17,7 @@
         android:theme="@style/Theme.AndibagProject"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".feature.friend.load.ui.MyProfileFixActivity"
+            android:name=".feature.myprofilefix.ui.MyProfileFixActivity"
             android:exported="false" />
         <activity
             android:name=".feature.chatting.ChattingActivity"
