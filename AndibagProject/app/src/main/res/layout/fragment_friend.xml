@@ -88,6 +88,19 @@
             app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintTop_toTopOf="@+id/tv_name" />
 
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/btn_move_fix_profile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginBottom="18dp"
+            android:paddingTop="28dp"
+            android:paddingBottom="28dp"
+            app:layout_constraintBottom_toBottomOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/image_card"
+            tools:layout_editor_absoluteX="0dp" />
+
         <View
             android:id="@+id/view"
             android:layout_width="match_parent"

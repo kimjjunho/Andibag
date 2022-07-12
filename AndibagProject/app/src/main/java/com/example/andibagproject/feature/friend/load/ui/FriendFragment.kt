@@ -46,6 +46,9 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
             imageAdd.setOnClickListener {
                 startActivity(Intent(requireContext(), AddFriendActivity()::class.java))
             }
+            btnMoveFixProfile.setOnClickListener {
+                startActivity(Intent(requireContext(), MyProfileFixActivity()::class.java))
+            }
 
             rv.apply {
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL,false)

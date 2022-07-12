@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.friend.load.ui.MyProfileFixActivity">
+
+        <ImageButton
+            android:id="@+id/image_back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/image_btn_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_fix"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="수정"
+            android:textColor="#AAAAAA"
+            app:layout_constraintBottom_toBottomOf="@+id/image_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/image_back" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/image_card"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="160dp"
+            app:cardCornerRadius="75dp"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/makeid_profileimage"
+                android:scaleType="centerCrop" />
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/edit_change_name"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="115dp"
+            android:fontFamily="@font/inter_medium"
+            android:hint="변경할 이름을 입력해 주세요"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_card" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="닉네임은 8~15 글자 이내로 정해주세요."
+            android:textColor="#AAAAAA"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/edit_change_name"
+            app:layout_constraintTop_toBottomOf="@+id/edit_change_name" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="닉네임은 특수문자와 띄어쓰기가 불가능합니다."
+            android:textColor="#AAAAAA"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/textView17"
+            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
