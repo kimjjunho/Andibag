@@ -85,7 +85,7 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
                 loadFriendAdapter.submitList(loadFriendList)
             }
 
-            myPhoneNumber.observe(this@FriendFragment){
+            myNickname.observe(this@FriendFragment){
                 binding.tvName.text = it
             }
             myImageUrl.observe(this@FriendFragment){
