@@ -24,11 +24,9 @@ class AddFriendViewModel(
     val loadPhoneNumber = MutableLiveData<String>()
     val loadImageUrl = MutableLiveData<String>()
 
-    fun addFriend(addFriendRequest: String){
-        Log.d(TAG, "addFriend: ")
-        val body = HashMap<String, String>()
-        body["nickname"] = addFriendRequest
-        rp.addFriend(body)
+    fun addFriend(addFriendRequest: AddFriendRequest){
+
+        rp.addFriend(addFriendRequest)
             .doOnError {
                 Log.d(TAG, "Error: $it")
             }

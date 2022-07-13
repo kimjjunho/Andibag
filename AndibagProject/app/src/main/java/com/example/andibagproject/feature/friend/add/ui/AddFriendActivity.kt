@@ -28,7 +28,7 @@ class AddFriendActivity : BaseActivity<ActivityAddFriendBinding>(R.layout.activi
                 vm.loadFriend(AddFriendRequest(editText.text.toString()))
             }
             btnAddFriend.setOnClickListener {
-                vm.addFriend(textPhoneNumber.text.toString())
+                vm.addFriend(AddFriendRequest(textPhoneNumber.text.toString()))
             }
         }
     }

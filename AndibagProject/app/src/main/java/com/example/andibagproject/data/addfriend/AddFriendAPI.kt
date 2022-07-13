@@ -12,7 +12,7 @@ interface AddFriendAPI {
     @POST("friend")
     fun addFriend(
         @Header("Authorization") header: String,
-        @Body body: HashMap<String, String>
+        @Body addFriendRequest: AddFriendRequest
     ):Single<Response<Unit>>
 
     @POST("friend/find")

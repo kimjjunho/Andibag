@@ -1,7 +1,9 @@
 package com.example.andibagproject.feature.myprofilefix.model
 
+import com.google.gson.annotations.SerializedName
+
 data class MyProfileFixRequest(
-    val nickname: String,
-    val imageUrl: String,
-    val phoneNumber: String
+    @SerializedName("nickname") val nickname: String,
+    @SerializedName("imageUrl") val imageUrl: String,
+    @SerializedName("phoneNumber") val phoneNumber: String
 )

@@ -64,26 +64,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/image_card" />
 
+        <EditText
+            android:id="@+id/edit_change_phone_number"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/inter_medium"
+            android:hint="변경할 전화번호를 입력해 주세요"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_change_name" />
+
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:fontFamily="@font/inter_medium"
-            android:text="닉네임은 8~15 글자 이내로 정해주세요."
+            android:text="이름은 8~15 글자 이내로 정해주세요."
             android:textColor="#AAAAAA"
             android:textSize="10sp"
-            app:layout_constraintStart_toStartOf="@+id/edit_change_name"
-            app:layout_constraintTop_toBottomOf="@+id/edit_change_name" />
+            app:layout_constraintStart_toStartOf="@+id/edit_change_phone_number"
+            app:layout_constraintTop_toBottomOf="@+id/edit_change_phone_number" />
 
         <TextView
+            android:id="@+id/textView19"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="닉네임은 특수문자와 띄어쓰기가 불가능합니다."
+            android:text="이름은 특수문자와 띄어쓰기가 불가능합니다."
             android:textColor="#AAAAAA"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/textView17"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전화번호는 '-' 없이 숫자만 11글자로 입력해 주세요."
+            android:textColor="#AAAAAA"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/textView19"
+            app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
