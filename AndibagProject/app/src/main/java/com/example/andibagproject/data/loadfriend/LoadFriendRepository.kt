@@ -20,4 +20,9 @@ class LoadFriendRepository {
         loadFriendAPI.loadMyProfile(ACCESS_TOKEN)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
+
+    fun deleteFriend(id: Long): @NonNull Single<Response<Unit>> =
+        loadFriendAPI.deleteFriend(ACCESS_TOKEN,id)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
 }

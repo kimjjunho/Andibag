@@ -2,6 +2,7 @@ package com.example.andibagproject.feature.friend.load.viewmodel
 
 import android.content.ContentValues.TAG
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.andibagproject.data.loadfriend.LoadFriendRepository
@@ -22,6 +23,8 @@ class FriendViewModel(
     val myImageUrl = MutableLiveData<String>()
     val myPhoneNumber = MutableLiveData<String>()
     val myProfileFail = MutableLiveData<Int>()
+
+    val delete = MutableLiveData<String>()
 
 
     fun loadFriend() {
@@ -51,6 +54,18 @@ class FriendViewModel(
                 }else{
                     Log.d(TAG, "loadMyProfile: "+respone.code())
                     myProfileFail.value = respone.code()
+                }
+            }
+    }
+
+    fun deleteFriend(id: Long) {
+        rp.deleteFriend(id)
+            .subscribe{ response->
+                Log.d(TAG, "deleteFriend: "+response.code())
+                if(response.isSuccessful){
+                    delete.value = "친구 삭제를 성공했습니다"
+                }else{
+                    delete.value = "친구 삭제를 실패했습니다"
                 }
             }
     }

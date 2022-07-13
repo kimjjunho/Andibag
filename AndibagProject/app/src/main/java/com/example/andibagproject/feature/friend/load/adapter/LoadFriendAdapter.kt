@@ -1,26 +1,27 @@
 package com.example.andibagproject.feature.friend.load.adapter
 
-import android.content.ContentValues.TAG
-import android.util.Log
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.andibagproject.databinding.ItemChattingBinding
 import com.example.andibagproject.feature.friend.load.model.LoadFriendResponse
+import com.example.andibagproject.feature.friend.load.viewmodel.FriendViewModel
 import com.example.andibagproject.feature.main.MainActivity
 import com.example.andibagproject.feature.settingDialogDelete
 import java.util.*
 
-class LoadFriendAdapter(private val recyclerView: RecyclerView, private val mainActivity: MainActivity): ListAdapter<LoadFriendResponse, RecyclerView.ViewHolder>(MyDiffCallback()) {
+class LoadFriendAdapter(private val recyclerView: RecyclerView, private val mainActivity: MainActivity, private val vm: FriendViewModel): ListAdapter<LoadFriendResponse, RecyclerView.ViewHolder>(MyDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
         LoadFriendViewHolder(
             ItemChattingBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            ),recyclerView,mainActivity
+            ),recyclerView,mainActivity,vm
         )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -30,9 +31,13 @@ class LoadFriendAdapter(private val recyclerView: RecyclerView, private val main
         }
     }
 
-    fun removeItem(position: Int){
+    fun removeItem(position: Int, vm: FriendViewModel, id: Long, mainActivity: MainActivity){
+        vm.delete.observe(mainActivity){
+            Toast.makeText(mainActivity, it, Toast.LENGTH_SHORT).show()
+        }
         val list = currentList.toMutableList()
         list.removeAt(position)
+        vm.deleteFriend(id)
         submitList(list)
     }
 
@@ -60,20 +65,20 @@ class MyDiffCallback: DiffUtil.ItemCallback<LoadFriendResponse>(){
 
 }
 
-class LoadFriendViewHolder(private val binding: ItemChattingBinding, private val recyclerView: RecyclerView, private val mainActivity: MainActivity):RecyclerView.ViewHolder(binding.root){
+class LoadFriendViewHolder(private val binding: ItemChattingBinding, private val recyclerView: RecyclerView, private val mainActivity: MainActivity, private val vm: FriendViewModel):RecyclerView.ViewHolder(binding.root){
     fun bind(data: LoadFriendResponse){
         binding.userInfo = data
         binding.run {
             itemTextName.text = data.nickname
 
             itemBtnDelete.setOnClickListener {
-                settingDialogDelete(mainActivity, itemTextName.text.toString()+"님을 친구에서 삭제하시겠습니까?") { helpDialog() }
+                settingDialogDelete(mainActivity, itemTextName.text.toString()+"님을 친구에서 삭제하시겠습니까?") { helpDialog(itemTextId.text.toString().toLong()) }
             }
         }
     }
 
-    private fun helpDialog(){
-        (recyclerView.adapter as LoadFriendAdapter).removeItem(layoutPosition)
+    private fun helpDialog(id: Long){
+        (recyclerView.adapter as LoadFriendAdapter).removeItem(layoutPosition,vm,id,mainActivity)
     }
 
     fun setAlpha(alpha: Float){

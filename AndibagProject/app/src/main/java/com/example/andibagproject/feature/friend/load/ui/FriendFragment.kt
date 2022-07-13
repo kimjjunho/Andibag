@@ -26,7 +26,7 @@ class FriendFragment : BaseFragment<FragmentFriendBinding>(R.layout.fragment_fri
     private val loadFriendAdapter : LoadFriendAdapter by lazy {
         val context = activity as MainActivity
 
-        LoadFriendAdapter(binding.rv,context)
+        LoadFriendAdapter(binding.rv,context,vm)
     }
 
   //  private val loadFriendList = arrayListOf<LoadFriendResponse>()
