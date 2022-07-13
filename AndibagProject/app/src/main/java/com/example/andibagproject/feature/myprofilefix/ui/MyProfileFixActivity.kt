@@ -20,7 +20,7 @@ class MyProfileFixActivity : BaseActivity<ActivityMyProfileFixBinding>(R.layout.
                 finish()
             }
             btnFix.setOnClickListener {
-                vm.myProfileFix(MyProfileFixRequest("dfn", "","01072747217"))
+                vm.myProfileFix(MyProfileFixRequest(editChangeName.text.toString(), "",editChangePhoneNumber.text.toString()))
             }
         }
 

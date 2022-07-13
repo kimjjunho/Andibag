@@ -7,9 +7,16 @@ import com.example.andibagproject.R
 
 @BindingAdapter("loadImage")
 fun loadImage(imageView: ImageView, url: String?) {
-    imageView.clipToOutline = true //imageView background 적용을 위한 속성
-    Glide.with(imageView)
-        .load(url)
-        .error(R.drawable.item_image_profile)
-        .into(imageView)
+    if(url != null || url != ""){
+        imageView.clipToOutline = true //imageView background 적용을 위한 속성
+        Glide.with(imageView)
+            .load(url)
+            .error(R.drawable.item_image_profile)
+            .into(imageView)
+    }else{
+        Glide.with(imageView)
+            .load(R.drawable.item_image_profile)
+            .into(imageView)
+    }
+
 }
