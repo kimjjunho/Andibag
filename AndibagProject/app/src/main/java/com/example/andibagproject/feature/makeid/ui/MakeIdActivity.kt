@@ -39,7 +39,7 @@ class MakeIdActivity : AppCompatActivity() {
     private var body: MultipartBody.Part? = null
 
     //private var imageUri : String? = null
-    private var imageList = listOf("1")
+    private var imageList = listOf<String>()
 
     lateinit var activityResultLauncher: ActivityResultLauncher<Intent>
 
@@ -85,6 +85,14 @@ class MakeIdActivity : AppCompatActivity() {
                 val intent = Intent(Intent.ACTION_GET_CONTENT)
                 intent.type = "image/*"
                 filterActivityLauncher.launch(intent)
+
+            }
+
+            imageButton.setOnLongClickListener {
+                imageButton.setImageResource(R.drawable.makeid_profileimage)
+                body = null
+
+                return@setOnLongClickListener(true)
             }
         }
     }
