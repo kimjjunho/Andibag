@@ -50,7 +50,7 @@ class MyProfileFixActivity : BaseActivity<ActivityMyProfileFixBinding>(R.layout.
                 if(body == null){
                     vm.myProfileFix(MyProfileFixRequest(editChangeName.text.toString(), null,editChangePhoneNumber.text.toString()))
                 }else{
-                    vm.
+                    imageUrlVm.loadImageAddress(body!!)
                 }
             }
         }
