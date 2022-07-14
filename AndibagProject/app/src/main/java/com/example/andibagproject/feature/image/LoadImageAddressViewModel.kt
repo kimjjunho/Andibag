@@ -15,10 +15,8 @@ class LoadImageAddressViewModel(
     val fail = MutableLiveData<Int>()
 
     fun loadImageAddress(list:MultipartBody.Part){
-        Log.d(TAG, "ViewModel 실행됨")
         rp.loadImageAddress(list)
             .subscribe { response ->
-                Log.d(TAG, "loadImageAddress: 실행되나>")
                 if (response.isSuccessful) {
                     fileList.value = response.body()
                 }else{

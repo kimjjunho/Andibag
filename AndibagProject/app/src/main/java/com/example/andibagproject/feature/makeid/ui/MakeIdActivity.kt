@@ -33,8 +33,8 @@ class MakeIdActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMakeIdBinding
     private val binding get() = mBinding
 
-    val vm: MakeIdViewModel by viewModel()
-    val imageVm: LoadImageAddressViewModel by viewModel()
+    private val vm: MakeIdViewModel by viewModel()
+    private val imageVm: LoadImageAddressViewModel by viewModel()
 
     private var body: MultipartBody.Part? = null
 
@@ -91,7 +91,6 @@ class MakeIdActivity : AppCompatActivity() {
             imageButton.setOnLongClickListener {
                 imageButton.setImageResource(R.drawable.makeid_profileimage)
                 body = null
-
                 return@setOnLongClickListener(true)
             }
         }
